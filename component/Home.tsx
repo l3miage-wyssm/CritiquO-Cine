@@ -16,28 +16,11 @@ function Home () {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
     };
     return (
-        <SafeAreaView style={backgroundStyle}>
-        <StatusBar
-            barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-    backgroundColor={backgroundStyle.backgroundColor}
-    />
-    <ScrollView
-    contentInsetAdjustmentBehavior="automatic"
-    style={backgroundStyle}>
-    <View style={styles.container}>
 
-    <Text style={styles.highlight}>Bonjour, {nom}</Text>
-    <Text style={styles.highlight}>Nom Famille :  </Text>
-    <Text> {nom}</Text>
-    <TextInput
-    style={styles.textInput}
-    value={nom}
-    onChangeText={setNom}
-    />
+    <View style={styles.container}>
+<Text>Home page</Text>
     </View>
 
-    </ScrollView>
-    </SafeAreaView>
 );
 
 }
