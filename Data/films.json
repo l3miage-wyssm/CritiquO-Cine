@@ -1,0 +1,1064 @@
+[
+    {
+        "titre": "Hamtaro - Aventures à Ham-Ham Land",
+        "année": 2003,
+        "genre": ["Animation", "Aventure", "Famille"],
+        "durée": 45,
+        "casting": [
+            {
+                "nom": "Kurumi Mamiya",
+                "rôle": "Hamtaro (voix japonaise)"
+            },
+            {
+                "nom": "Chieko Honda",
+                "rôle": "Laura Haruna (voix japonaise)"
+            }
+        ],
+        "synopsis": "Hamtaro et ses amis hamsters se lancent dans une aventure magique pour trouver la légendaire Terre des Ham-Hams.",
+        "note": 7.2
+    },
+    {
+        "titre": "Princesse et la grenouille",
+        "année": 2009,
+        "genre": ["Animation", "Aventure", "Famille"],
+        "durée": 97,
+        "casting": [
+            {
+                "nom": "Anika Noni Rose",
+                "rôle": "Tiana"
+            },
+            {
+                "nom": "Bruno Campos",
+                "rôle": "Prince Naveen"
+            }
+        ],
+        "synopsis": "Une jeune serveuse, désireuse de réaliser son rêve d'ouvrir un restaurant, est transformée en grenouille par un prince transformé en grenouille après un baiser désespéré.",
+        "note": 7.1
+    },
+    {
+        "titre": "High School Musical",
+        "année": 2006,
+        "genre": ["Comédie musicale", "Romance"],
+        "durée": 98,
+        "casting": [
+            {
+                "nom": "Zac Efron",
+                "rôle": "Troy Bolton"
+            },
+            {
+                "nom": "Vanessa Hudgens",
+                "rôle": "Gabriella Montez"
+            }
+        ],
+        "synopsis": "Un capitaine de l'équipe de basketball de son lycée et une nouvelle élève timide découvrent leur amour commun pour le chant.",
+        "note": 5.4
+    },
+    {
+        "titre": "High School Musical 2",
+        "année": 2007,
+        "genre": ["Comédie musicale", "Romance"],
+        "durée": 104,
+        "casting": [
+            {
+                "nom": "Zac Efron",
+                "rôle": "Troy Bolton"
+            },
+            {
+                "nom": "Vanessa Hudgens",
+                "rôle": "Gabriella Montez"
+            }
+        ],
+        "synopsis": "Les élèves de East High sont en vacances d'été et découvrent de nouvelles opportunités tout en travaillant au Lava Springs Country Club.",
+        "note": 5.0
+    },
+    {
+        "titre": "High School Musical 3: Senior Year",
+        "année": 2008,
+        "genre": ["Comédie musicale", "Romance"],
+        "durée": 112,
+        "casting": [
+            {
+                "nom": "Zac Efron",
+                "rôle": "Troy Bolton"
+            },
+            {
+                "nom": "Vanessa Hudgens",
+                "rôle": "Gabriella Montez"
+            }
+        ],
+        "synopsis": "Les élèves de East High se préparent à la remise des diplômes et à l'avenir tout en participant à une dernière comédie musicale.",
+        "note": 4.8
+    },
+    {
+        "titre": "Camp Rock",
+        "année": 2008,
+        "genre": ["Comédie musicale", "Famille"],
+        "durée": 94,
+        "casting": [
+            {
+                "nom": "Demi Lovato",
+                "rôle": "Mitchie Torres"
+            },
+            {
+                "nom": "Joe Jonas",
+                "rôle": "Shane Gray"
+            }
+        ],
+        "synopsis": "Une adolescente talentueuse obtient une place dans un prestigieux camp de musique d'été, où elle rencontre un chanteur pop en difficulté.",
+        "note": 5.2
+    },
+    {
+        "titre": "Camp Rock 2: Le Face à Face",
+        "année": 2010,
+        "genre": ["Comédie musicale", "Famille"],
+        "durée": 97,
+        "casting": [
+            {
+                "nom": "Demi Lovato",
+                "rôle": "Mitchie Torres"
+            },
+            {
+                "nom": "Joe Jonas",
+                "rôle": "Shane Gray"
+            }
+        ],
+        "synopsis": "Camp Rock s'oppose à Camp Star dans une compétition musicale épique.",
+        "note": 4.9
+    },
+    {
+        "titre": "Hannah Montana: Le Film",
+        "année": 2009,
+        "genre": ["Comédie", "Drame", "Famille"],
+        "durée": 102,
+        "casting": [
+            {
+                "nom": "Miley Cyrus",
+                "rôle": "Miley Stewart/Hannah Montana"
+            },
+            {
+                "nom": "Billy Ray Cyrus",
+                "rôle": "Robby Ray Stewart"
+            }
+        ],
+        "synopsis": "Miley Stewart se bat pour concilier sa vie d'adolescente normale avec sa vie de superstar.",
+        "note": 4.5
+    },
+    {
+        "titre": "Princesse Protection Program",
+        "année": 2009,
+        "genre": ["Comédie", "Famille"],
+        "durée": 90,
+        "casting": [
+            {
+                "nom": "Demi Lovato",
+                "rôle": "Princess Rosalinda"
+            },
+            {
+                "nom": "Selena Gomez",
+                "rôle": "Carter Mason"
+            }
+        ],
+        "synopsis": "Une princesse est placée dans un programme de protection des témoins et apprend à vivre comme une adolescente normale.",
+        "note": 5.6
+    },
+    {
+        "titre": "Raiponce",
+        "année": 2010,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 100,
+        "casting": [
+            {
+                "nom": "Mandy Moore",
+                "rôle": "Rapunzel (voix)"
+            },
+            {
+                "nom": "Zachary Levi",
+                "rôle": "Flynn Rider (voix)"
+            }
+        ],
+        "synopsis": "Une jeune princesse aux cheveux magiques longs de 70 pieds aspire à quitter sa tour isolée.",
+        "note": 7.7
+    },
+    {
+        "titre": "Toy Story",
+        "année": 1995,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 81,
+        "casting": [
+            {
+                "nom": "Tom Hanks",
+                "rôle": "Woody (voix)"
+            },
+            {
+                "nom": "Tim Allen",
+                "rôle": "Buzz Lightyear (voix)"
+            }
+        ],
+        "synopsis": "Les jouets d'Andy prennent vie quand il n'est pas là et doivent faire face à l'arrivée d'un nouveau jouet, Buzz l'Éclair.",
+        "note": 8.3
+    },
+    {
+        "titre": "Toy Story 2",
+        "année": 1999,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 92,
+        "casting": [
+            {
+                "nom": "Tom Hanks",
+                "rôle": "Woody (voix)"
+            },
+            {
+                "nom": "Tim Allen",
+                "rôle": "Buzz Lightyear (voix)"
+            }
+        ],
+        "synopsis": "Woody est kidnappé par un collectionneur de jouets, et Buzz et les autres jouets se lancent dans une mission de sauvetage.",
+        "note": 7.9
+    },
+    {
+        "titre": "Toy Story 3",
+        "année": 2010,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 103,
+        "casting": [
+            {
+                "nom": "Tom Hanks",
+                "rôle": "Woody (voix)"
+            },
+            {
+                "nom": "Tim Allen",
+                "rôle": "Buzz Lightyear (voix)"
+            }
+        ],
+        "synopsis": "Les jouets d'Andy sont donnés à une garderie lorsque Andy part pour l'université.",
+        "note": 8.2
+    },
+    {
+        "titre": "Toy Story 4",
+        "année": 2019,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 100,
+        "casting": [
+            {
+                "nom": "Tom Hanks",
+                "rôle": "Woody (voix)"
+            },
+            {
+                "nom": "Tim Allen",
+                "rôle": "Buzz Lightyear (voix)"
+            }
+        ],
+        "synopsis": "Woody et Buzz font la rencontre de Forky, un nouveau jouet, et vivent de nouvelles aventures.",
+        "note": 7.7
+    },
+    {
+        "titre": "Le Roi Lion",
+        "année": 1994,
+        "genre": ["Animation", "Aventure", "Drame"],
+        "durée": 88,
+        "casting": [
+            {
+                "nom": "Matthew Broderick",
+                "rôle": "Simba (voix adulte)"
+            },
+            {
+                "nom": "Jeremy Irons",
+                "rôle": "Scar (voix)"
+            }
+        ],
+        "synopsis": "Le jeune lion Simba, héritier de la savane africaine, lutte pour reprendre son trône après le meurtre de son père par son oncle Scar.",
+        "note": 8.5
+    },
+    {
+        "titre": "Le Roi Lion 2 : L'Honneur de la Tribu",
+        "année": 1998,
+        "genre": ["Animation", "Aventure", "Famille"],
+        "durée": 81,
+        "casting": [
+            {
+                "nom": "Matthew Broderick",
+                "rôle": "Simba (voix adulte)"
+            },
+            {
+                "nom": "Neve Campbell",
+                "rôle": "Kiara (voix)"
+            }
+        ],
+        "synopsis": "La fille de Simba, Kiara, rencontre un jeune lion nommé Kovu, héritier du clan exilé de Scar.",
+        "note": 6.5
+    },
+    {
+        "titre": "Le Roi Lion 3 : Hakuna Matata",
+        "année": 2004,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 77,
+        "casting": [
+            {
+                "nom": "Nathan Lane",
+                "rôle": "Timon (voix)"
+            },
+            {
+                "nom": "Ernie Sabella",
+                "rôle": "Pumbaa (voix)"
+            }
+        ],
+        "synopsis": "L'histoire du Roi Lion racontée du point de vue de Timon et Pumbaa.",
+        "note": 6.6
+    },
+    {
+        "titre": "Cendrillon",
+        "année": 1950,
+        "genre": ["Animation", "Famille", "Fantastique"],
+        "durée": 74,
+        "casting": [
+            {
+                "nom": "Ilene Woods",
+                "rôle": "Cendrillon (voix)"
+            },
+            {
+                "nom": "Eleanor Audley",
+                "rôle": "Lady Tremaine (voix)"
+            }
+        ],
+        "synopsis": "Maltraitée par sa belle-mère et ses belles-sœurs, Cendrillon voit sa vie changer grâce à l'intervention de sa marraine la fée.",
+        "note": 7.3
+    },
+    {
+        "titre": "Cendrillon 2 : Une vie de princesse",
+        "année": 2002,
+        "genre": ["Animation", "Famille", "Fantastique"],
+        "durée": 74,
+        "casting": [
+            {
+                "nom": "Jennifer Hale",
+                "rôle": "Cendrillon (voix)"
+            },
+            {
+                "nom": "Rob Paulsen",
+                "rôle": "Jaq (voix)"
+            }
+        ],
+        "synopsis": "Cendrillon s'adapte à sa nouvelle vie de princesse tout en aidant ses amis à trouver leur propre bonheur.",
+        "note": 5.0
+    },
+    {
+        "titre": "Cendrillon 3 : Le Sortilège de Cendrillon",
+        "année": 2007,
+        "genre": ["Animation", "Famille", "Fantastique"],
+        "durée": 74,
+        "casting": [
+            {
+                "nom": "Jennifer Hale",
+                "rôle": "Cendrillon (voix)"
+            },
+            {
+                "nom": "Christopher Daniel Barnes",
+                "rôle": "Prince Charming (voix)"
+            }
+        ],
+        "synopsis": "La belle-mère de Cendrillon vole la baguette magique et renverse le cours du temps.",
+        "note": 6.0
+    },
+    {
+        "titre": "Dune",
+        "année": 2021,
+        "genre": ["Science-fiction", "Aventure"],
+        "durée": 155,
+        "casting": [
+            {
+                "nom": "Timothée Chalamet",
+                "rôle": "Paul Atreides"
+            },
+            {
+                "nom": "Zendaya",
+                "rôle": "Chani"
+            }
+        ],
+        "synopsis": "L'histoire de Paul Atreides, un jeune homme brillant et doué né dans un destin grandiose qu'il ne comprend pas encore, alors qu'il voyage vers la planète la plus dangereuse de l'univers pour assurer l'avenir de sa famille et de son peuple.",
+        "note": 8.0
+    },
+    {
+        "titre": "Dune: Part Two",
+        "année": 2024,
+        "genre": ["Science-fiction", "Aventure"],
+        "durée": null,
+        "casting": [
+            {
+                "nom": "Timothée Chalamet",
+                "rôle": "Paul Atreides"
+            },
+            {
+                "nom": "Zendaya",
+                "rôle": "Chani"
+            }
+        ],
+        "synopsis": "La suite des aventures de Paul Atreides alors qu'il tente de se venger des conspirateurs qui ont détruit sa famille et de sauver un univers en guerre.",
+        "note": null
+    },
+    {
+        "titre": "Coco",
+        "année": 2017,
+        "genre": ["Animation", "Aventure", "Famille"],
+        "durée": 105,
+        "casting": [
+            {
+                "nom": "Anthony Gonzalez",
+                "rôle": "Miguel (voix)"
+            },
+            {
+                "nom": "Gael García Bernal",
+                "rôle": "Héctor (voix)"
+            }
+        ],
+        "synopsis": "Un jeune garçon nommé Miguel rêve de devenir un musicien accompli malgré l'interdiction de la musique par sa famille. Lors de la célébration du Jour des Morts, il se retrouve transporté dans le monde des ancêtres.",
+        "note": 8.4
+    },
+    {
+        "titre": "Cars",
+        "année": 2006,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 117,
+        "casting": [
+            {
+                "nom": "Owen Wilson",
+                "rôle": "Lightning McQueen (voix)"
+            },
+            {
+                "nom": "Paul Newman",
+                "rôle": "Doc Hudson (voix)"
+            }
+        ],
+        "synopsis": "Une voiture de course célèbre découvre qu'il y a plus dans la vie que des victoires et des trophées lorsqu'il atterrit dans une petite ville.",
+        "note": 7.1
+    },
+    {
+        "titre": "Cars 2",
+        "année": 2011,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 106,
+        "casting": [
+            {
+                "nom": "Owen Wilson",
+                "rôle": "Lightning McQueen (voix)"
+            },
+            {
+                "nom": "Larry the Cable Guy",
+                "rôle": "Mater (voix)"
+            }
+        ],
+        "synopsis": "Lightning McQueen et son ami Mater se retrouvent impliqués dans une aventure d'espionnage international.",
+        "note": 6.1
+    },
+    {
+        "titre": "Cars 3",
+        "année": 2017,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 102,
+        "casting": [
+            {
+                "nom": "Owen Wilson",
+                "rôle": "Lightning McQueen (voix)"
+            },
+            {
+                "nom": "Cristela Alonzo",
+                "rôle": "Cruz Ramirez (voix)"
+            }
+        ],
+        "synopsis": "Lightning McQueen fait face à une nouvelle génération de voitures de course et se tourne vers une jeune technicienne de course pour l'aider à revenir dans la compétition.",
+        "note": 6.7
+    },
+    {
+        "titre": "Le Monde de Nemo",
+        "année": 2003,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 100,
+        "casting": [
+            {
+                "nom": "Albert Brooks",
+                "rôle": "Marlin (voix)"
+            },
+            {
+                "nom": "Ellen DeGeneres",
+                "rôle": "Dory (voix)"
+            }
+        ],
+        "synopsis": "Après que son fils Nemo soit capturé dans la Grande Barrière de Corail et emmené à Sydney, un poisson clown timide part à sa recherche et devient ami avec une poisson-chirurgien bleu oublieux nommé Dory.",
+        "note": 8.1
+    },
+    {
+        "titre": "Le Monde de Dory",
+        "année": 2016,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 97,
+        "casting": [
+            {
+                "nom": "Ellen DeGeneres",
+                "rôle": "Dory (voix)"
+            },
+            {
+                "nom": "Albert Brooks",
+                "rôle": "Marlin (voix)"
+            }
+        ],
+        "synopsis": "Dory, une poisson-chirurgien bleu qui souffre de pertes de mémoire à court terme, s'embarque dans une aventure pour retrouver sa famille.",
+        "note": 7.3
+    },
+    {
+        "titre": "Rebelle",
+        "année": 2012,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 93,
+        "casting": [
+            {
+                "nom": "Kelly Macdonald",
+                "rôle": "Merida (voix)"
+            },
+            {
+                "nom": "Billy Connolly",
+                "rôle": "Fergus (voix)"
+            }
+        ],
+        "synopsis": "Une jeune princesse écossaise déterminée à tracer sa propre voie dans la vie défie une tradition qui apporte le chaos à son royaume.",
+        "note": 7.1
+    },
+    {
+        "titre": "Les Nouveaux Héros",
+        "année": 2014,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 102,
+        "casting": [
+            {
+                "nom": "Ryan Potter",
+                "rôle": "Hiro (voix)"
+            },
+            {
+                "nom": "Scott Adsit",
+                "rôle": "Baymax (voix)"
+            }
+        ],
+        "synopsis": "Un jeune prodige de la robotique nommé Hiro forme un groupe de super-héros pour combattre un méchant masqué.",
+        "note": 7.8
+    },
+    {
+        "titre": "Luca",
+        "année": 2021,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 95,
+        "casting": [
+            {
+                "nom": "Jacob Tremblay",
+                "rôle": "Luca Paguro (voix)"
+            },
+            {
+                "nom": "Jack Dylan Grazer",
+                "rôle": "Alberto Scorfano (voix)"
+            }
+        ],
+        "synopsis": "Un jeune garçon vivant une expérience inoubliable lors de son été sur la Riviera italienne, rempli de gelato, de pâtes et d'interminables balades en scooter, tout en cachant un secret : il est un monstre marin venu d'un autre monde sous la surface de l'eau.",
+        "note": 7.5
+    },
+    {
+        "titre": "Bienvenue chez les Ch'tis",
+        "année": 2008,
+        "genre": ["Comédie"],
+        "durée": 106,
+        "casting": [
+            {
+                "nom": "Kad Merad",
+                "rôle": "Philippe Abrams"
+            },
+            {
+                "nom": "Dany Boon",
+                "rôle": "Antoine Bailleul"
+            }
+        ],
+        "synopsis": "Un directeur de poste d'une région ensoleillée du sud de la France est muté de force dans une petite ville du nord, où il découvre une culture et des habitants chaleureux.",
+        "note": 7.1
+    },
+    {
+        "titre": "Les Choristes",
+        "année": 2004,
+        "genre": ["Drame", "Musique"],
+        "durée": 97,
+        "casting": [
+            {
+                "nom": "Gérard Jugnot",
+                "rôle": "Clément Mathieu"
+            },
+            {
+                "nom": "François Berléand",
+                "rôle": "Rachin"
+            }
+        ],
+        "synopsis": "En 1949, un professeur de musique commence à travailler dans un internat pour garçons difficiles, et découvre qu'un des élèves a un talent incroyable pour le chant.",
+        "note": 7.9
+    },
+    {
+        "titre": "Les Bronzés font du ski",
+        "année": 1979,
+        "genre": ["Comédie"],
+        "durée": 90,
+        "casting": [
+            {
+                "nom": "Michel Blanc",
+                "rôle": "Jean-Claude Dusse"
+            },
+            {
+                "nom": "Marie-Anne Chazel",
+                "rôle": "Gigi"
+            }
+        ],
+        "synopsis": "Une bande d'amis part en vacances au ski, où ils vivront des mésaventures hilarantes.",
+        "note": 7.4
+    },
+    {
+        "titre": "Black Panther",
+        "année": 2018,
+        "genre": ["Action", "Aventure", "Science-fiction"],
+        "durée": 134,
+        "casting": [
+            {
+                "nom": "Chadwick Boseman",
+                "rôle": "T'Challa / Black Panther"
+            },
+            {
+                "nom": "Michael B. Jordan",
+                "rôle": "Erik Killmonger"
+            }
+        ],
+        "synopsis": "T'Challa, roi de Wakanda, doit défendre son royaume d'un ennemi dangereux qui menace de provoquer une guerre mondiale.",
+        "note": 7.3
+    },
+    {
+        "titre": "Black Panther: Wakanda Forever",
+        "année": 2022,
+        "genre": ["Action", "Aventure", "Science-fiction"],
+        "durée": 161,
+        "casting": [
+            {
+                "nom": "Letitia Wright",
+                "rôle": "Shuri"
+            },
+            {
+                "nom": "Lupita Nyong'o",
+                "rôle": "Nakia"
+            }
+        ],
+        "synopsis": "Les habitants de Wakanda luttent pour protéger leur royaume des menaces mondiales après la mort du roi T'Challa.",
+        "note": 6.8
+    },
+    {
+        "titre": "Les Gardiens de la Galaxie",
+        "année": 2014,
+        "genre": ["Action", "Aventure", "Science-fiction"],
+        "durée": 121,
+        "casting": [
+            {
+                "nom": "Chris Pratt",
+                "rôle": "Peter Quill / Star-Lord"
+            },
+            {
+                "nom": "Zoe Saldana",
+                "rôle": "Gamora"
+            }
+        ],
+        "synopsis": "Un groupe de criminels intergalactiques doit unir ses forces pour empêcher un fanatique guerrier de prendre le contrôle de l'univers.",
+        "note": 8.0
+    },
+    {
+        "titre": "Les Gardiens de la Galaxie Vol. 2",
+        "année": 2017,
+        "genre": ["Action", "Aventure", "Science-fiction"],
+        "durée": 136,
+        "casting": [
+            {
+                "nom": "Chris Pratt",
+                "rôle": "Peter Quill / Star-Lord"
+            },
+            {
+                "nom": "Zoe Saldana",
+                "rôle": "Gamora"
+            }
+        ],
+        "synopsis": "Les Gardiens doivent combattre pour rester unis alors qu'ils découvrent la vérité sur la véritable parenté de Peter Quill.",
+        "note": 7.6
+    },
+    {
+        "titre": "Les Gardiens de la Galaxie Vol. 3",
+        "année": 2023,
+        "genre": ["Action", "Aventure", "Science-fiction"],
+        "durée": 150,
+        "casting": [
+            {
+                "nom": "Chris Pratt",
+                "rôle": "Peter Quill / Star-Lord"
+            },
+            {
+                "nom": "Zoe Saldana",
+                "rôle": "Gamora"
+            }
+        ],
+        "synopsis": "Les Gardiens affrontent de nouveaux défis tout en tentant de protéger l'univers et découvrir les secrets du passé de Rocket.",
+        "note": 7.8
+    },
+    {
+        "titre": "Mort sur le Nil",
+        "année": 2022,
+        "genre": ["Crime", "Drame", "Mystère"],
+        "durée": 127,
+        "casting": [
+            {
+                "nom": "Kenneth Branagh",
+                "rôle": "Hercule Poirot"
+            },
+            {
+                "nom": "Gal Gadot",
+                "rôle": "Linnet Ridgeway"
+            }
+        ],
+        "synopsis": "Le détective Hercule Poirot enquête sur le meurtre d'une jeune héritière à bord d'un navire de croisière sur le Nil.",
+        "note": 6.3
+    },
+    {
+        "titre": "Les Gardiens de la Galaxie",
+        "année": 2014,
+        "genre": ["Action", "Aventure", "Science-fiction"],
+        "durée": 121,
+        "casting": [
+            {
+                "nom": "Chris Pratt",
+                "rôle": "Peter Quill / Star-Lord"
+            },
+            {
+                "nom": "Zoe Saldana",
+                "rôle": "Gamora"
+            }
+        ],
+        "synopsis": "Un groupe de criminels intergalactiques doit unir ses forces pour empêcher un fanatique guerrier de prendre le contrôle de l'univers.",
+        "note": 8.0
+    },
+    {
+        "titre": "Les Gardiens de la Galaxie Vol. 2",
+        "année": 2017,
+        "genre": ["Action", "Aventure", "Science-fiction"],
+        "durée": 136,
+        "casting": [
+            {
+                "nom": "Chris Pratt",
+                "rôle": "Peter Quill / Star-Lord"
+            },
+            {
+                "nom": "Zoe Saldana",
+                "rôle": "Gamora"
+            }
+        ],
+        "synopsis": "Les Gardiens doivent combattre pour rester unis alors qu'ils découvrent la vérité sur la véritable parenté de Peter Quill.",
+        "note": 7.6
+    },
+    {
+        "titre": "Les Gardiens de la Galaxie Vol. 3",
+        "année": 2023,
+        "genre": ["Action", "Aventure", "Science-fiction"],
+        "durée": 150,
+        "casting": [
+            {
+                "nom": "Chris Pratt",
+                "rôle": "Peter Quill / Star-Lord"
+            },
+            {
+                "nom": "Zoe Saldana",
+                "rôle": "Gamora"
+            }
+        ],
+        "synopsis": "Les Gardiens affrontent de nouveaux défis tout en tentant de protéger l'univers et découvrir les secrets du passé de Rocket.",
+        "note": 7.8
+    },
+    {
+        "titre": "Mort sur le Nil",
+        "année": 2022,
+        "genre": ["Crime", "Drame", "Mystère"],
+        "durée": 127,
+        "casting": [
+            {
+                "nom": "Kenneth Branagh",
+                "rôle": "Hercule Poirot"
+            },
+            {
+                "nom": "Gal Gadot",
+                "rôle": "Linnet Ridgeway"
+            }
+        ],
+        "synopsis": "Le détective Hercule Poirot enquête sur le meurtre d'une jeune héritière à bord d'un navire de croisière sur le Nil.",
+        "note": 6.3
+    },
+    {
+        "titre": "Le Crime de l'Orient-Express",
+        "année": 2017,
+        "genre": ["Crime", "Drame", "Mystère"],
+        "durée": 114,
+        "casting": [
+            {
+                "nom": "Kenneth Branagh",
+                "rôle": "Hercule Poirot"
+            },
+            {
+                "nom": "Penélope Cruz",
+                "rôle": "Pilar Estravados"
+            }
+        ],
+        "synopsis": "Le détective Hercule Poirot enquête sur le meurtre d'un riche homme d'affaires à bord de l'Orient-Express.",
+        "note": 6.5
+    },
+    {
+        "titre": "Mystère à Venise",
+        "année": 2023,
+        "genre": ["Crime", "Drame", "Mystère"],
+        "durée": 103,
+        "casting": [
+            {
+                "nom": "Kenneth Branagh",
+                "rôle": "Hercule Poirot"
+            },
+            {
+                "nom": "Kelly Reilly",
+                "rôle": "Rowena Drake"
+            }
+        ],
+        "synopsis": "Après la Seconde Guerre mondiale, Hercule Poirot, désormais retraité, participe à une séance de spiritisme à Venise. Lorsque l'un des invités est assassiné, Poirot doit à nouveau résoudre une énigme complexe.",
+        "note": 6.8
+    },
+    {
+        "titre": "Élémentaire",
+        "année": 2023,
+        "genre": ["Animation", "Aventure", "Comédie"],
+        "durée": 102,
+        "casting": [
+            {
+                "nom": "Leah Lewis",
+                "rôle": "Ember Lumen (voix)"
+            },
+            {
+                "nom": "Mamoudou Athie",
+                "rôle": "Wade Ripple (voix)"
+            }
+        ],
+        "synopsis": "Ember et Wade, issus des éléments du feu et de l'eau, découvrent combien ils ont en commun tout en explorant la ville des éléments.",
+        "note": 7.1
+    },
+    {
+        "titre": "Wonka",
+        "année": 2023,
+        "genre": ["Aventure", "Fantastique", "Musical"],
+        "durée": 100,
+        "casting": [
+            {
+                "nom": "Timothée Chalamet",
+                "rôle": "Willy Wonka"
+            },
+            {
+                "nom": "Olivia Colman",
+                "rôle": "Chef Confiseur"
+            }
+        ],
+        "synopsis": "Une préquelle à l'histoire de Willy Wonka et de sa fabrique de chocolat, retraçant ses premières aventures avant d'ouvrir la fabrique.",
+        "note": 7.4
+    },
+    {
+        "titre": "Back to Black",
+        "année": 2024,
+        "genre": ["Drame", "Biographie", "Musique"],
+        "durée": 128,
+        "casting": [
+            {
+                "nom": "Marisa Abela",
+                "rôle": "Amy Winehouse"
+            },
+            {
+                "nom": "Eddie Marsan",
+                "rôle": "Mitch Winehouse"
+            }
+        ],
+        "synopsis": "Un regard biographique sur la vie et la carrière de la chanteuse Amy Winehouse, de ses débuts à sa lutte contre l'addiction.",
+        "note": 7.6
+    },
+    {
+        "titre": "Bohemian Rhapsody",
+        "année": 2018,
+        "genre": ["Drame", "Biographie", "Musique"],
+        "durée": 134,
+        "casting": [
+            {
+                "nom": "Rami Malek",
+                "rôle": "Freddie Mercury"
+            },
+            {
+                "nom": "Gwilym Lee",
+                "rôle": "Brian May"
+            }
+        ],
+        "synopsis": "Un biopic sur la vie du chanteur du groupe Queen, Freddie Mercury, de ses débuts jusqu'au concert Live Aid en 1985.",
+        "note": 8.0
+    },
+    {
+        "titre": "Challengers",
+        "année": 2024,
+        "genre": ["Drame", "Sport", "Romance"],
+        "durée": 110,
+        "casting": [
+            {
+                "nom": "Zendaya",
+                "rôle": "Tashi Duncan"
+            },
+            {
+                "nom": "Mike Faist",
+                "rôle": "Art Donaldson"
+            }
+        ],
+        "synopsis": "Une joueuse de tennis et son mari entraîneur se retrouvent dans un triangle amoureux compliqué lorsqu'un ancien rival fait son retour sur la scène sportive.",
+        "note": 7.2
+    },
+    {
+        "titre": "Madame Web",
+        "année": 2024,
+        "genre": ["Action", "Aventure", "Science-fiction"],
+        "durée": 145,
+        "casting": [
+            {
+                "nom": "Dakota Johnson",
+                "rôle": "Madame Web"
+            },
+            {
+                "nom": "Sydney Sweeney",
+                "rôle": "Julia Carpenter"
+            }
+        ],
+        "synopsis": "Un spin-off de l'univers Spider-Man centré sur le personnage de Madame Web, une médium aux pouvoirs psychiques.",
+        "note": 7.0
+    },
+    {
+        "titre": "Barbie et les Douze Princesses",
+        "année": 2006,
+        "genre": ["Animation", "Famille", "Fantastique"],
+        "durée": 81,
+        "casting": [
+            {
+                "nom": "Kelly Sheridan",
+                "rôle": "Barbie (voix)"
+            },
+            {
+                "nom": "Catherine O'Hara",
+                "rôle": "La Reine Rowena (voix)"
+            }
+        ],
+        "synopsis": "Barbie incarne la princesse Geneviève qui, avec ses onze sœurs, découvre un passage secret vers un monde magique où elles doivent sauver leur royaume.",
+        "note": 6.6
+    },
+    {
+        "titre": "Barbie et la Popstar",
+        "année": 2012,
+        "genre": ["Animation", "Famille", "Musical"],
+        "durée": 86,
+        "casting": [
+            {
+                "nom": "Kelly Sheridan",
+                "rôle": "Barbie (voix)"
+            },
+            {
+                "nom": "Jennifer Waris",
+                "rôle": "Keira (voix)"
+            }
+        ],
+        "synopsis": "Barbie et la popstar Keira échangent leurs vies et découvrent que rester fidèle à soi-même est la clé du bonheur.",
+        "note": 5.9
+    },
+    {
+        "titre": "Barbie Cœur de Princesse",
+        "année": 2004,
+        "genre": ["Animation", "Famille", "Fantastique"],
+        "durée": 85,
+        "casting": [
+            {
+                "nom": "Kelly Sheridan",
+                "rôle": "Barbie (voix)"
+            },
+            {
+                "nom": "Mark Hildreth",
+                "rôle": "Julian (voix)"
+            }
+        ],
+        "synopsis": "Barbie joue le rôle d'Anneliese, une princesse qui rencontre son double exact, une pauvre villageoise nommée Erika. Ensemble, elles échangent leurs places et vivent des aventures.",
+        "note": 6.9
+    },
+    {
+        "titre": "Barbie et le Secret des Sirènes",
+        "année": 2010,
+        "genre": ["Animation", "Famille", "Fantastique"],
+        "durée": 74,
+        "casting": [
+            {
+                "nom": "Kelly Sheridan",
+                "rôle": "Barbie (voix)"
+            },
+            {
+                "nom": "Tabitha St. Germain",
+                "rôle": "Calissa (voix)"
+            }
+        ],
+        "synopsis": "Barbie découvre qu'elle est une sirène et se lance dans une aventure pour sauver son royaume sous-marin.",
+        "note": 6.1
+    },
+    {
+        "titre": "Barbie et le Secret des Sirènes 2",
+        "année": 2012,
+        "genre": ["Animation", "Famille", "Fantastique"],
+        "durée": 73,
+        "casting": [
+            {
+                "nom": "Kelly Sheridan",
+                "rôle": "Barbie (voix)"
+            },
+            {
+                "nom": "Kazumi Evans",
+                "rôle": "Kylie Morgan (voix)"
+            }
+        ],
+        "synopsis": "Barbie revient en tant que sirène pour affronter une nouvelle menace qui pèse sur son royaume sous-marin.",
+        "note": 6.0
+    },
+    {
+        "titre": "Barbie et le Secret des Fées",
+        "année": 2011,
+        "genre": ["Animation", "Famille", "Fantastique"],
+        "durée": 72,
+        "casting": [
+            {
+                "nom": "Kelly Sheridan",
+                "rôle": "Barbie (voix)"
+            },
+            {
+                "nom": "Katie Crown",
+                "rôle": "Racquelle (voix)"
+            }
+        ],
+        "synopsis": "Barbie découvre l'existence des fées et part à l'aventure pour sauver Ken qui a été enlevé par une fée jalouse.",
+        "note": 5.7
+    },
+    {
+        "titre": "Barbie et la Magie de Noël",
+        "année": 2008,
+        "genre": ["Animation", "Famille", "Fantastique"],
+        "durée": 76,
+        "casting": [
+            {
+                "nom": "Kelly Sheridan",
+                "rôle": "Barbie / Eden Starling (voix)"
+            },
+            {
+                "nom": "Morwenna Banks",
+                "rôle": "Catherine (voix)"
+            }
+        ],
+        "synopsis": "Barbie joue le rôle d'Eden Starling, une diva de théâtre égoïste à Londres victorien, qui apprend l'importance de la générosité et de l'esprit de Noël.",
+        "note": 6.3
+    }
+]
