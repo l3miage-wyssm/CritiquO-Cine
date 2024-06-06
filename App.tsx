@@ -7,7 +7,7 @@ import {
     useColorScheme,
     DrawerLayoutAndroid,
     View,
-    Text, GestureResponderEvent,
+    Text, GestureResponderEvent, ScrollView,
 } from 'react-native';
 import {NavigationContainer, useNavigation} from "@react-navigation/native";
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -33,11 +33,7 @@ const App = (): React.JSX.Element => {
     };
 
     return (
-        <SafeAreaView style={[styles.container, backgroundStyle]}>
-            <StatusBar
-                barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-                backgroundColor={backgroundStyle.backgroundColor}
-            />
+    
             <NavigationContainer>
                 <DrawerLayoutAndroid
                     ref={drawer}
@@ -46,14 +42,18 @@ const App = (): React.JSX.Element => {
                     renderNavigationView={() => <NavigationView drawerRef={drawer} />}
                 >
                     <HeaderBar onPress={() => drawer.current?.openDrawer()}/>
+
                     <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
+
                         <Stack.Screen name="Home" component={Home}/>
                         <Stack.Screen name="Profile" component={Profile}/>
                         <Stack.Screen name="Favori" component={ListFavori}/>
+
                     </Stack.Navigator>
+
                 </DrawerLayoutAndroid>
             </NavigationContainer>
-        </SafeAreaView>
+
     );
 }
 
@@ -68,7 +68,13 @@ const NavigationView = ({drawerRef}) => {
                     drawerRef.current?.closeDrawer();
                 }
             }}>
+                <View style={styles.col}>
+                <Image
+                    source={require('../CritiquOCine/asset/heart.png')}
+                    style={styles.icon}
+                />
                 <Text style={styles.paragraph}>Ma liste favori</Text>
+                </View>
             </TouchableOpacity>
         </View>
     );
@@ -96,6 +102,7 @@ const HeaderBar = (props: { onPress: ((event: GestureResponderEvent) => void) | 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingTop: StatusBar.currentHeight,
     },
     content: {
         flex: 1,
@@ -116,20 +123,28 @@ const styles = StyleSheet.create({
         flex: 0.6,
         height: 50,
     },
-    dropdown: {
-        width: 200,
-        height: 50,
-        backgroundColor: 'white',
-        borderRadius: 8,
-        paddingHorizontal: 10
-    },
     navigationContainer: {
         backgroundColor: '#ecf0f1',
     },
     paragraph: {
         padding: 16,
-        fontSize: 15,
-        textAlign: 'center',
+        fontSize: 20,
+    },
+    icon: {
+        width: 25,
+        height: 25,
+        resizeMode: 'contain'
+    },
+    col: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 15,
+    },
+    scrollView: {
+        backgroundColor: 'pink',
+        marginHorizontal: 2,
+        flex: 1,
     },
 });
 
