@@ -17,11 +17,15 @@ import Profile from "./component/Profile.tsx";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import {StackNavigationProp} from "@react-navigation/stack";
 import ListFavori from "./component/ListFavori.tsx";
+import Actor from "./component/Actor.tsx";
+import Film from "./component/Film.tsx";
 
 type RootStackParamList = {
     Home: undefined;
     Profile: undefined;
     Favori: undefined;
+    Actor: undefined;
+    Film: undefined;
 };
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -33,7 +37,6 @@ const App = (): React.JSX.Element => {
     };
 
     return (
-    
             <NavigationContainer>
                 <DrawerLayoutAndroid
                     ref={drawer}
@@ -44,13 +47,12 @@ const App = (): React.JSX.Element => {
                     <HeaderBar onPress={() => drawer.current?.openDrawer()}/>
 
                     <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
-
                         <Stack.Screen name="Home" component={Home}/>
                         <Stack.Screen name="Profile" component={Profile}/>
                         <Stack.Screen name="Favori" component={ListFavori}/>
-
+                        <Stack.Screen name="Actor" component={Actor}/>
+                        <Stack.Screen name="Film" component={Film}/>
                     </Stack.Navigator>
-
                 </DrawerLayoutAndroid>
             </NavigationContainer>
 
@@ -84,7 +86,10 @@ const HeaderBar = (props: { onPress: ((event: GestureResponderEvent) => void) | 
     return(
         <View style={styles.headerContainer}>
             <TouchableOpacity onPress={props.onPress}>
-                <Icon name="menu" size={30} color="#900" />
+                <Image
+                    source={require('../CritiquOCine/asset/liste.png')}
+                    style={styles.icon}
+                />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('Home')}>
             <Image
@@ -93,7 +98,10 @@ const HeaderBar = (props: { onPress: ((event: GestureResponderEvent) => void) | 
             />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                <Icon name="person" size={50} color="#900" />
+                <Image
+                    source={require('../CritiquOCine/asset/tete-de-femme.png')}
+                    style={styles.icon}
+                />
             </TouchableOpacity>
         </View>
     );
@@ -131,8 +139,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     icon: {
-        width: 25,
-        height: 25,
+        width: 35,
+        height: 35,
         resizeMode: 'contain'
     },
     col: {

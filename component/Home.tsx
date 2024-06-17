@@ -6,120 +6,77 @@ import {
     Text, TextInput, TouchableOpacity, useColorScheme,
     View,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { Picker } from '@react-native-picker/picker';
 import FilmCard from "./FilmCard.tsx";
+import filmData from '../Data/films.json';
 
 function Home () {
+
     const isDarkMode = useColorScheme() === 'dark';  const backgroundStyle = {
         backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
     };
     const [inputValue, setInputValue] = React.useState('')
-    const [selectedValue, setSelectedValue] = React.useState("Par pertinance")
-    const films = [  {
-        "titre": "Hamtaro - Aventures à Ham-Ham Land",
-        "année": 2003,
-        "genre": ["Animation", "Aventure", "Famille"],
-        "durée": 45,
-        "casting": [
-            {
-                "nom": "Kurumi Mamiya",
-                "role": "Hamtaro (voix japonaise)"
-            },
-            {
-                "nom": "Chieko Honda",
-                "role": "Laura Haruna (voix japonaise)"
-            }
-        ],
-        "synopsis": "Hamtaro et ses amis hamsters se lancent dans une aventure magique pour trouver la légendaire Terre des Ham-Hams.",
-        "note": 7.2
-    },
-        {
-            "titre": "Princesse et la grenouille",
-            "année": 2009,
-            "genre": ["Animation", "Aventure", "Famille"],
-            "durée": 97,
-            "casting": [
-                {
-                    "nom": "Anika Noni Rose",
-                    "role": "Tiana"
-                },
-                {
-                    "nom": "Bruno Campos",
-                    "role": "Prince Naveen"
-                }
-            ],
-            "synopsis": "Une jeune serveuse, désireuse de réaliser son rêve d'ouvrir un restaurant, est transformée en grenouille par un prince transformé en grenouille après un baiser désespéré.",
-            "note": 7.1
-        },
-        {
-            "titre": "High School Musical",
-            "année": 2006,
-            "genre": ["Comédie musicale", "Romance"],
-            "durée": 98,
-            "casting": [
-                {
-                    "nom": "Zac Efron",
-                    "role": "Troy Bolton"
-                },
-                {
-                    "nom": "Vanessa Hudgens",
-                    "role": "Gabriella Montez"
-                }
-            ],
-            "synopsis": "Un capitaine de l'équipe de basketball de son lycée et une nouvelle élève timide découvrent leur amour commun pour le chant.",
-            "note": 5.4
-        }]
+    const [selectedValue, setSelectedValue] = React.useState("Par note")
+    const [filteredFilms, setFilteredFilms] = React.useState<Film[]>(filmData);
+    const [sortedFilms, setSortedFilms] = React.useState(filteredFilms);
+
+    const getAllGenres = (films: any[]) => {
+        const allGenres = new Set();
+
+        films.forEach(film => {
+            film.genre.forEach(genre => {
+                allGenres.add(genre);
+            });
+        });
+
+        return Array.from(allGenres);
+    };
+
+    const uniqueGenres = getAllGenres(filmData)
+
+    const handleInputChange = (text: string) => {
+        setInputValue(text);
+        let films = filmData;
+        if (text !== '') {
+            films = filmData.filter((film) =>
+                film.titre.toLowerCase().includes(text.toLowerCase())
+            );
+        }
+        setFilteredFilms(films);
+        sortFilms(films);
+    }
+
+    const sortFilms = (films) => {
+        let sorted = [...films];
+        if (selectedValue === 'par date') {
+            sorted.sort((a, b) => a.année - b.année);
+        } else if (selectedValue === 'par ordre alphabetique') {
+            sorted.sort((a, b) => a.titre.localeCompare(b.titre));
+        } else {
+            sorted.sort((a, b) => {
+                if (a.note === null && b.note === null) return 0;
+                if (a.note === null) return 1;
+                if (b.note === null) return -1;
+                return b.note - a.note;
+            });
+        }
+        setSortedFilms(sorted);
+    };
+
+    React.useEffect(() => {
+        sortFilms(filteredFilms);
+    }, [selectedValue])
 
     return (
-/*
-    <View style={styles.container}>
-        <SafeAreaView style={styles.cardContainer}>
-        <ScrollView style={styles.scrollView}>
-        <TextInput
-            style={styles.textInput}
-            value={inputValue}
-            onChangeText={text => setInputValue(text)}
-            placeholder="Veuillez saisir le nom du film ..."
-        />
-        <View style={styles.pickerIconRow}>
-        <Icon name="filter-list" size={30} color="#900" />
-        <Picker
-            selectedValue={selectedValue}
-            onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-            style={styles.picker}
-        >
-            <Picker.Item label="Par pertinance" value="Par pertinance" />
-            <Picker.Item label="par date" value="par date" />
-            <Picker.Item label="par ordre alphabetique" value="par ordre alphabetique" />
-        </Picker>
-            </View>
-        <View style={styles.card}>
-        
-            {films.map((film, index) =>
-                <FilmCard
-                key={index}
-                titre={film.titre}
-                          année={film.année}
-                          casting={film.casting}
-                          durée={film.durée}
-                          genre={film.genre}
-                          note={film.note}
-                          synopsis={film.synopsis}/>
-            )}
-   
-        </View>
-        </ScrollView>
-        </SafeAreaView>
-    </View>
-*/
 <View style={styles.container}>
     <SafeAreaView style={styles.cardContainer}>
         <TextInput
             style={styles.textInput}
             value={inputValue}
-            onChangeText={text => setInputValue(text)}
+            onChangeText={handleInputChange}
             placeholder="Veuillez saisir le nom du film ..."
         />
         <View style={styles.pickerIconRow}>
@@ -129,14 +86,14 @@ function Home () {
                 onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                 style={styles.picker}
             >
-                <Picker.Item label="Par pertinance" value="Par pertinance" />
+                <Picker.Item label="Par note" value="Par note" />
                 <Picker.Item label="par date" value="par date" />
                 <Picker.Item label="par ordre alphabetique" value="par ordre alphabetique" />
             </Picker>
         </View>
         <ScrollView style={styles.scrollView}>
             <View style={styles.card}>
-                {films.map((film, index) =>
+                {sortedFilms.map((film, index) =>
                     <FilmCard
                         key={index}
                         titre={film.titre}
@@ -145,7 +102,11 @@ function Home () {
                         durée={film.durée}
                         genre={film.genre}
                         note={film.note}
-                        synopsis={film.synopsis}/>
+                        synopsis={film.synopsis}
+                        image={film.image}
+                        comment={film.comment}
+                        isDetailShow={false}
+                    />
                 )}
             </View>
         </ScrollView>

@@ -1,4 +1,5 @@
 interface Actor {
     nom: string;
-    role: string;
+    rôle: string;
+    image:string;
 }
