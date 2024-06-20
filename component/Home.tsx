@@ -1,40 +1,33 @@
 import React from 'react';
 import {
-    Button,
-    Image, SafeAreaView, ScrollView, StatusBar,
-    StyleSheet,
-    Text, TextInput, TouchableOpacity, useColorScheme,
+    SafeAreaView, ScrollView, StatusBar,
+    StyleSheet, TextInput,
     View,
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {Colors} from "react-native/Libraries/NewAppScreen";
-import Icon from "react-native-vector-icons/MaterialIcons";
 import { Picker } from '@react-native-picker/picker';
 import FilmCard from "./FilmCard.tsx";
 import filmData from '../Data/films.json';
 
 function Home () {
-
-    const isDarkMode = useColorScheme() === 'dark';  const backgroundStyle = {
-        backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    };
     const [inputValue, setInputValue] = React.useState('')
     const [selectedValue, setSelectedValue] = React.useState("Par note")
-    const [filteredFilms, setFilteredFilms] = React.useState<Film[]>(filmData);
-    const [sortedFilms, setSortedFilms] = React.useState(filteredFilms);
+    // @ts-ignore
+    const [filteredFilms, setFilteredFilms] = React.useState<Film[]>(filmData)
+    const [sortedFilms, setSortedFilms] = React.useState(filteredFilms)
 
-    const getAllGenres = (films: any[]) => {
+    const getAllGenres = (films: Film[]) => {
         const allGenres = new Set();
 
         films.forEach(film => {
-            film.genre.forEach(genre => {
-                allGenres.add(genre);
-            });
-        });
+            film.genre.forEach((genre: string) => {
+                allGenres.add(genre)
+            })
+        })
 
         return Array.from(allGenres);
-    };
+    }
 
+    // @ts-ignore
     const uniqueGenres = getAllGenres(filmData)
 
     const handleInputChange = (text: string) => {
@@ -43,13 +36,14 @@ function Home () {
         if (text !== '') {
             films = filmData.filter((film) =>
                 film.titre.toLowerCase().includes(text.toLowerCase())
-            );
+            )
         }
+        // @ts-ignore
         setFilteredFilms(films);
         sortFilms(films);
     }
 
-    const sortFilms = (films) => {
+    const sortFilms = (films: ({ titre: string; année: number; genre: string[]; durée: number; casting: { nom: string; rôle: string; }[]; synopsis: string; note: number; image: string; } | { titre: string; année: number; genre: string[]; durée: null; casting: { nom: string; rôle: string; }[]; synopsis: string; note: null; image: string; })[] | Film[]) => {
         let sorted = [...films];
         if (selectedValue === 'par date') {
             sorted.sort((a, b) => a.année - b.année);
@@ -63,6 +57,7 @@ function Home () {
                 return b.note - a.note;
             });
         }
+        // @ts-ignore
         setSortedFilms(sorted);
     };
 
@@ -80,7 +75,6 @@ function Home () {
             placeholder="Veuillez saisir le nom du film ..."
         />
         <View style={styles.pickerIconRow}>
-            <Icon name="filter-list" size={30} color="#900" />
             <Picker
                 selectedValue={selectedValue}
                 onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
@@ -95,7 +89,7 @@ function Home () {
             <View style={styles.card}>
                 {sortedFilms.map((film, index) =>
                     <FilmCard
-                        key={index}
+                        key={film.titre}
                         titre={film.titre}
                         année={film.année}
                         casting={film.casting}
@@ -104,7 +98,6 @@ function Home () {
                         note={film.note}
                         synopsis={film.synopsis}
                         image={film.image}
-                        comment={film.comment}
                         isDetailShow={false}
                     />
                 )}
@@ -112,8 +105,7 @@ function Home () {
         </ScrollView>
     </SafeAreaView>
 </View>
-);
-
+)
 }
 const styles = StyleSheet.create({
     container: {
@@ -125,7 +117,6 @@ const styles = StyleSheet.create({
         paddingTop: StatusBar.currentHeight,
       },
     scrollView: {
-        backgroundColor: 'pink',
         marginHorizontal: 10,
         height: 500
       },
@@ -146,7 +137,7 @@ const styles = StyleSheet.create({
     pickerIconRow: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
-        alignItems: 'center',
+        alignItems: 'flex-end',
     },
     icon: {
         width: 60,
@@ -156,8 +147,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-});
-
-
+})
 
 export default Home

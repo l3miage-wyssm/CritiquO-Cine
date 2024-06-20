@@ -70,7 +70,7 @@ function Film({route}) {
                 </View>
             </ScrollView>
         </View>
-    );
+    )
 }
 
 const styles = StyleSheet.create({
@@ -123,6 +123,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         height: 500
     },
-});
+})
 
 export default Film;

@@ -3,10 +3,19 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import actorData from '../Data/acteurs.json'
 import {useNavigation} from "@react-navigation/native";
 
-function FilmCard (props: { image?: any; titre?: any; année?: any; note?: any; genre?: any; synopsis?: any; casting?: any; isDetailShow?: any; }) {
+function FilmCard (props: {
+    isLiked?: boolean;onLike?: Function;
+    image?: string; titre?: string; année?: string; note?: number; genre?: string; synopsis?: string; casting?: Actor[]; isDetailShow?: boolean; }) {
     const navigation = useNavigation();
     const {isDetailShow} = props
-    const [isLiked, setIsLiked] = React.useState(false)
+    const [isLiked, setIsLiked] = React.useState(props.isLiked || false)
+    const handleLikeClick = () => {
+        if (props.isLiked === null || props.isLiked === undefined) {
+            setIsLiked(!isLiked);
+        } else {
+            props.onLike(props.titre);
+        }
+    }
     const handleActorPress = (actorName: string) => {
         const actorInfo = actorData.find(actor => actor.nom === actorName);
         if (actorInfo) {
@@ -25,7 +34,7 @@ function FilmCard (props: { image?: any; titre?: any; année?: any; note?: any; 
                     />
                 </View>
                 <View style={styles.column}>
-                    <TouchableOpacity onPress={() => setIsLiked(!isLiked)}>
+                    <TouchableOpacity onPress={handleLikeClick}>
                         <Image
                             source={isLiked? require('../asset/bisou-clin-doeil-coeur.png'):require('../asset/bisou-clin-doeil-coeur-n.png')}
                             style={styles.icon}
@@ -78,7 +87,6 @@ const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
         marginBottom: 10,
-
     },
     column: {
         flexDirection: 'column',

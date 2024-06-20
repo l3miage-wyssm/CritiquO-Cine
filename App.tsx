@@ -1,24 +1,23 @@
 import React from 'react';
 import {
     Image,
-    SafeAreaView,
     StatusBar,
     StyleSheet, TouchableOpacity,
     useColorScheme,
     DrawerLayoutAndroid,
     View,
-    Text, GestureResponderEvent, ScrollView,
+    Text, GestureResponderEvent,
 } from 'react-native';
 import {NavigationContainer, useNavigation} from "@react-navigation/native";
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Home from "./component/Home.tsx";
 import Profile from "./component/Profile.tsx";
-import Icon from "react-native-vector-icons/MaterialIcons";
 import {StackNavigationProp} from "@react-navigation/stack";
 import ListFavori from "./component/ListFavori.tsx";
 import Actor from "./component/Actor.tsx";
 import Film from "./component/Film.tsx";
+import Connecxion from "./component/Connecxion.tsx";
 
 type RootStackParamList = {
     Home: undefined;
@@ -26,16 +25,12 @@ type RootStackParamList = {
     Favori: undefined;
     Actor: undefined;
     Film: undefined;
+    Connecxion: undefined;
 };
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = (): React.JSX.Element => {
     const drawer = React.useRef<DrawerLayoutAndroid>(null);
-    const isDarkMode = useColorScheme();
-    const backgroundStyle = {
-        backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    };
-
     return (
             <NavigationContainer>
                 <DrawerLayoutAndroid
@@ -52,6 +47,7 @@ const App = (): React.JSX.Element => {
                         <Stack.Screen name="Favori" component={ListFavori}/>
                         <Stack.Screen name="Actor" component={Actor}/>
                         <Stack.Screen name="Film" component={Film}/>
+                        <Stack.Screen name="Connecxion" component={Connecxion} />
                     </Stack.Navigator>
                 </DrawerLayoutAndroid>
             </NavigationContainer>
@@ -61,9 +57,13 @@ const App = (): React.JSX.Element => {
 
 // @ts-ignore
 const NavigationView = ({drawerRef}) => {
-    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+    const navigation = useNavigation();
     return (
         <View style={[styles.container, styles.navigationContainer]}>
+            <Image
+                source={require('../CritiquOCine/asset/logo.png')}
+                style={styles.logoSmall}
+            />
             <TouchableOpacity onPress={() => {
                 navigation.navigate('Favori');
                 if (drawerRef) {
@@ -72,10 +72,46 @@ const NavigationView = ({drawerRef}) => {
             }}>
                 <View style={styles.col}>
                 <Image
-                    source={require('../CritiquOCine/asset/heart.png')}
+                    source={require('../CritiquOCine/asset/coeur.png')}
                     style={styles.icon}
                 />
                 <Text style={styles.paragraph}>Ma liste favori</Text>
+                </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => {
+                navigation.navigate('Home');
+                if (drawerRef) {
+                    drawerRef.current?.closeDrawer();
+                }
+            }}>
+                <View style={styles.col}>
+                    <Image
+                        source={require('../CritiquOCine/asset/maison.png')}
+                        style={styles.icon}
+                    />
+                    <Text style={styles.paragraph}>Acceuil</Text>
+                </View>
+            </TouchableOpacity>
+            <View style={styles.col}>
+                <Image
+                    source={require('../CritiquOCine/asset/reglages.png')}
+                    style={styles.icon}
+                />
+                <Text style={styles.paragraph}>Paramères</Text>
+            </View>
+            <TouchableOpacity onPress={() => {
+                navigation.navigate('Connecxion');
+                if (drawerRef) {
+                    drawerRef.current?.closeDrawer();
+                }
+            }}>
+                <View style={styles.col}>
+                    <Image
+                        source={require('../CritiquOCine/asset/connexion-alt.png')}
+                        style={styles.icon}
+                    />
+                    <Text style={styles.paragraph}>Déconnecter</Text>
                 </View>
             </TouchableOpacity>
         </View>
@@ -97,7 +133,7 @@ const HeaderBar = (props: { onPress: ((event: GestureResponderEvent) => void) | 
                 style={styles.logo}
             />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Profile', {isConnected:true})}>
                 <Image
                     source={require('../CritiquOCine/asset/tete-de-femme.png')}
                     style={styles.icon}
@@ -121,9 +157,10 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         height: 100,
         backgroundColor: '#FFC1E7',
-        padding: 10
+        padding: 20
     },
     logo: {
+        marginTop:30,
         width: 250,
         resizeMode: 'contain'
     },
@@ -154,6 +191,12 @@ const styles = StyleSheet.create({
         marginHorizontal: 2,
         flex: 1,
     },
+    logoSmall : {
+        height:240,
+        width:240,
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
 });
 
 export default App;

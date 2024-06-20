@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 function Comment(props: { comment: string}) {
     const [isLiked, setIsLiked] = React.useState(false)
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         height: 25,
         resizeMode: 'contain',
         alignSelf: 'flex-end',
-        marginRight: 20, // 为第一个图标添加右边距
+        marginRight: 20,
     },
 });
 
