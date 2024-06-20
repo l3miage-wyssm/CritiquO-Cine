@@ -93,13 +93,6 @@ const NavigationView = ({drawerRef}) => {
                     <Text style={styles.paragraph}>Acceuil</Text>
                 </View>
             </TouchableOpacity>
-            <View style={styles.col}>
-                <Image
-                    source={require('../CritiquOCine/asset/reglages.png')}
-                    style={styles.icon}
-                />
-                <Text style={styles.paragraph}>Paramères</Text>
-            </View>
             <TouchableOpacity onPress={() => {
                 navigation.navigate('Connecxion');
                 if (drawerRef) {
