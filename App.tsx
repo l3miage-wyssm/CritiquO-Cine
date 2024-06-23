@@ -57,7 +57,26 @@ const App = (): React.JSX.Element => {
 
 // @ts-ignore
 const NavigationView = ({drawerRef}) => {
-    const navigation = useNavigation();
+    const navigation = useNavigation()
+    const [listFavorite, setListFavorite] = React.useState([])
+    React.useEffect(() => {
+        fetch('https://raw.githubusercontent.com/l3miage-xusi/PDM_API/main/user.json', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json()
+            })
+            .then((data) => {
+                setListFavorite(data.listFavorite)
+            })
+    }, [])
     return (
         <View style={[styles.container, styles.navigationContainer]}>
             <Image
@@ -65,9 +84,9 @@ const NavigationView = ({drawerRef}) => {
                 style={styles.logoSmall}
             />
             <TouchableOpacity onPress={() => {
-                navigation.navigate('Favori');
+                navigation.navigate('Favori', {listFavorite})
                 if (drawerRef) {
-                    drawerRef.current?.closeDrawer();
+                    drawerRef.current?.closeDrawer()
                 }
             }}>
                 <View style={styles.col}>
@@ -93,13 +112,6 @@ const NavigationView = ({drawerRef}) => {
                     <Text style={styles.paragraph}>Acceuil</Text>
                 </View>
             </TouchableOpacity>
-            <View style={styles.col}>
-                <Image
-                    source={require('../CritiquOCine/asset/reglages.png')}
-                    style={styles.icon}
-                />
-                <Text style={styles.paragraph}>Paramères</Text>
-            </View>
             <TouchableOpacity onPress={() => {
                 navigation.navigate('Connecxion');
                 if (drawerRef) {
@@ -133,7 +145,7 @@ const HeaderBar = (props: { onPress: ((event: GestureResponderEvent) => void) | 
                 style={styles.logo}
             />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Profile', {isConnected:true})}>
+            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
                 <Image
                     source={require('../CritiquOCine/asset/tete-de-femme.png')}
                     style={styles.icon}
@@ -174,6 +186,7 @@ const styles = StyleSheet.create({
     paragraph: {
         padding: 16,
         fontSize: 20,
+        color:'black',
     },
     icon: {
         width: 35,
@@ -196,6 +209,7 @@ const styles = StyleSheet.create({
         width:240,
         alignItems: 'center',
         justifyContent: 'center',
+        marginLeft:20
     }
 });
 

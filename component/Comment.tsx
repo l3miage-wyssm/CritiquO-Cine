@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
         borderColor: '#ccc',
         borderRadius: 5,
         padding: 5,
+        color:'black',
     },
     iconsContainer: {
         flexDirection: 'row',

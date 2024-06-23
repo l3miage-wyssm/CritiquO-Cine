@@ -1,24 +1,47 @@
 import React, { useState } from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView} from 'react-native';
-import userData from '../Data/user.json';
 import Comment from "./Comment.tsx";
 import {useNavigation} from "@react-navigation/native";
 
 function Profile() {
-    const navigation = useNavigation();
-    const [name, setName] = useState(userData.name);
+    const navigation = useNavigation()
+    const [userData, setUserData] = React.useState(null)
+    const [name, setName] = useState('')
+    const [comments, setComments] = React.useState([])
     const [editMode, setEditMode] = useState(false);
     const [isCommentShow,setIsCommentsShow] = React.useState(false)
-    const comments = userData.comments;
-    const nbComments = comments.length;
-
+    const [listFavorite,setListFavorite] = React.useState([])
+    const userId = userData && userData.id
     const handleNameChange = (newName) => {
         setName(newName);
-    };
+    }
 
     const handleNameSubmit = () => {
-        setEditMode(false);
-    };
+        setEditMode(false)
+    }
+
+
+        React.useEffect(() => {
+            fetch('https://raw.githubusercontent.com/l3miage-xusi/PDM_API/main/user.json', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json()
+                })
+                .then((data) => {
+                    setUserData(data)
+                    setName(data.name)
+                    setComments(data.comments)
+                    setListFavorite(data.listFavorite)
+                })
+        }, [])
 
     return (
 
@@ -28,7 +51,7 @@ function Profile() {
                           source={require('../asset/femme.png')}
                           style={styles.image}
                       />
-                      <View style={styles.textContainer}>
+                      {userData && <View style={styles.textContainer}>
                           {editMode ? (
                               <TextInput
                                   style={styles.input}
@@ -60,14 +83,14 @@ function Profile() {
                                   style={styles.icon}
                               />
                           </View>
-                      </View>
+                      </View>}
                   </View>
                   <View style={styles.secondTitle}>
                       <Image
                           source={require('../asset/coeur.png')}
                           style={styles.icon}
                       />
-                      <TouchableOpacity onPress={() => navigation.navigate('Favori') }>
+                      <TouchableOpacity onPress={() => navigation.navigate('Favori', {listFavorite}) }>
                         <Text style={styles.commentText}>Ma liste Favori</Text>
                       </TouchableOpacity>
                   </View>
@@ -76,7 +99,7 @@ function Profile() {
                           source={require('../asset/commentaire.png')}
                           style={styles.icon}
                       />
-                      <Text style={styles.commentText}>Commentaires envoyées : {nbComments}</Text>
+                      <Text style={styles.commentText}>Commentaires envoyées : {comments.length}</Text>
                       <TouchableOpacity onPress={() => setIsCommentsShow(!isCommentShow)}>
                           <Image
                               source={isCommentShow? require('../asset/caret-cercle-bas.png') :require('../asset/caret-cercle-vers-le-haut.png')}
@@ -137,6 +160,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 25,
         marginRight: 10,
+        color:'black'
     },
     label: {
         fontSize: 15,
@@ -169,7 +193,8 @@ const styles = StyleSheet.create({
         borderWidth:1,
         borderRadius: 4,
         borderColor: '#FFC1E7',
-        marginRight:20
+        marginRight:20,
+        color:'black'
     },
     scrollView: {
         flex: 1,

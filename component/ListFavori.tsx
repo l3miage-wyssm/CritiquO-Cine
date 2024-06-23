@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import userData from '../Data/user.json';
 import FilmCard from "./FilmCard.tsx";
 
-const ListFavori = () => {
-    const [list, setList] = useState(userData.ListFavorite);
+const ListFavori = ({route}) => {
+   const [list, setList] = useState(route.params.listFavorite)
     const handleIsLiked = (filmId) => {
         const newList = list.filter(film => film.titre !== filmId);
         setList(newList);
     }
-
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Ma liste favori</Text>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.card}>
-                    {list.map((film, index) =>
+                    {list.map((film) =>
                         <FilmCard
                             key={film.titre}
                             titre={film.titre}

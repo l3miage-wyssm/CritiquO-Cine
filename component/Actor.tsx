@@ -1,23 +1,42 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native';
-import filmData from '../Data/films.json';
 import {useNavigation} from "@react-navigation/native";
 // @ts-ignore
 function Actor({route}) {
     const actor = route.params
     const navigation = useNavigation()
     const [movies, setMovies] = React.useState([])
+    const [filmData, setFilmData] = React.useState([])
 
+ //GetAllFilmsByActor
     React.useEffect(() => {
-        const filteredMovies = filmData.filter(film =>
-            film.casting.some(cast => cast.nom === actor.actorInfo.nom)
-        )
-        // @ts-ignore
-        setMovies(filteredMovies)
+        fetch('https://raw.githubusercontent.com/l3miage-xusi/PDM_API/main/films.json', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                setFilmData(data)
+                const filteredMovies = data.filter(film =>
+                    film.casting.some(cast => cast.nom === actor.actorInfo.nom)
+                )
+                // @ts-ignore
+                setMovies(filteredMovies)
+            })
+            .catch((error) => {
+                console.error('Error fetching film data:', error)
+            })
     }, [actor.actorInfo])
 
-    // @ts-ignore
-    // @ts-ignore
+
     return (
         <View style={styles.container}>
             <View style={[styles.row, styles.spaceBetween]}>

@@ -1,14 +1,13 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, TextInput, Button} from 'react-native';
-import CommentsData from '../Data/comments.json';
 import FilmCard from "./FilmCard.tsx";
 import Comment from "./Comment.tsx";
 
 // @ts-ignore
 function Film({route}) {
-    const film = route.params.props || route.params.movie;
-    const commentsData = CommentsData.find(comments => comments.film === film.titre);
-    const comments = commentsData ? commentsData.comments : [];
+    const film = route.params.props || route.params.movie
+    const [commentsData, setCommentsData] = React.useState([])
+    const [comments, setComments] = React.useState([])
     const [isAddingNewComment, setIsAddingNewComment] = React.useState(false);
     const [newComment, setNewComment] = React.useState('');
 
@@ -18,7 +17,29 @@ function Film({route}) {
             setNewComment('');
             setIsAddingNewComment(false);
         }
-    };
+    }
+
+    React.useEffect(() => {
+        fetch('https://raw.githubusercontent.com/l3miage-xusi/PDM_API/main/comments.json', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json()
+            })
+            .then((data) => {
+                setCommentsData(data)
+                const filteredComments= data.find ((comment) => comment.film === film.titre)
+                setComments(filteredComments.comments)
+
+        })
+    }, [])
     return (
         <View style={styles.container}>
             <FilmCard
@@ -48,6 +69,7 @@ function Film({route}) {
                     <TextInput
                         style={styles.input}
                         placeholder="Ajouter un commentaire..."
+                        placeholderTextColor='grey'
                         value={newComment}
                         onChangeText={setNewComment}
                         multiline
@@ -56,7 +78,7 @@ function Film({route}) {
                         <Button
                             title="Ajouter"
                             onPress={handleAddComment}
-                            color="#000"
+                            color="#5E17EB"
                         />
                     </View>
                 </View>
@@ -89,11 +111,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         margin: 10,
-
     },
     text:{
         fontWeight:'bold',
-        fontSize: 20
+        fontSize: 20,
+        color:'black',
     },
     newCommentContainer: {
         padding: 10,

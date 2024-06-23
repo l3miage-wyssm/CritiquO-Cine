@@ -6,11 +6,11 @@ import {
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import FilmCard from "./FilmCard.tsx";
-import filmData from '../Data/films.json';
 
 function Home () {
     const [inputValue, setInputValue] = React.useState('')
     const [selectedValue, setSelectedValue] = React.useState("Par note")
+    const [filmData, setFilmData] = React.useState([])
     // @ts-ignore
     const [filteredFilms, setFilteredFilms] = React.useState<Film[]>(filmData)
     const [sortedFilms, setSortedFilms] = React.useState(filteredFilms)
@@ -24,46 +24,75 @@ function Home () {
             })
         })
 
-        return Array.from(allGenres);
+        return Array.from(allGenres)
     }
 
     // @ts-ignore
     const uniqueGenres = getAllGenres(filmData)
 
     const handleInputChange = (text: string) => {
-        setInputValue(text);
-        let films = filmData;
+        setInputValue(text)
+        let films = filmData
         if (text !== '') {
+            // @ts-ignore
             films = filmData.filter((film) =>
                 film.titre.toLowerCase().includes(text.toLowerCase())
             )
         }
         // @ts-ignore
-        setFilteredFilms(films);
-        sortFilms(films);
+        setFilteredFilms(films)
+        sortFilms(films)
     }
 
-    const sortFilms = (films: ({ titre: string; année: number; genre: string[]; durée: number; casting: { nom: string; rôle: string; }[]; synopsis: string; note: number; image: string; } | { titre: string; année: number; genre: string[]; durée: null; casting: { nom: string; rôle: string; }[]; synopsis: string; note: null; image: string; })[] | Film[]) => {
-        let sorted = [...films];
+    const sortFilms = (films: Film[]) => {
+        let sorted = [...films]
         if (selectedValue === 'par date') {
-            sorted.sort((a, b) => a.année - b.année);
+            sorted.sort((a, b) => a.année - b.année)
         } else if (selectedValue === 'par ordre alphabetique') {
-            sorted.sort((a, b) => a.titre.localeCompare(b.titre));
+            sorted.sort((a, b) => a.titre.localeCompare(b.titre))
         } else {
             sorted.sort((a, b) => {
-                if (a.note === null && b.note === null) return 0;
-                if (a.note === null) return 1;
-                if (b.note === null) return -1;
-                return b.note - a.note;
-            });
+                if (a.note === null && b.note === null) return 0
+                if (a.note === null) return 1
+                if (b.note === null) return -1
+                return b.note - a.note
+            })
         }
         // @ts-ignore
-        setSortedFilms(sorted);
-    };
+        setSortedFilms(sorted)
+    }
 
     React.useEffect(() => {
-        sortFilms(filteredFilms);
+        sortFilms(filteredFilms)
     }, [selectedValue])
+
+
+
+    //GetAllFilms
+    React.useEffect(() => {
+        fetch('https://raw.githubusercontent.com/l3miage-xusi/PDM_API/main/films.json', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                setFilmData(data);
+                setFilteredFilms(data);
+                setSortedFilms(data);
+            })
+            .catch((error) => {
+                console.error('Error fetching film data:', error)
+            })
+    }, [])
+
 
     return (
 <View style={styles.container}>
@@ -73,12 +102,14 @@ function Home () {
             value={inputValue}
             onChangeText={handleInputChange}
             placeholder="Veuillez saisir le nom du film ..."
+            placeholderTextColor="#000000"
         />
         <View style={styles.pickerIconRow}>
             <Picker
                 selectedValue={selectedValue}
                 onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                 style={styles.picker}
+                dropdownIconColor='#000000'
             >
                 <Picker.Item label="Par note" value="Par note" />
                 <Picker.Item label="par date" value="par date" />
@@ -131,8 +162,9 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     picker: {
-        flex: 0.6,
+        width: '40%',
         height: 50,
+        color:'#000000',
     },
     pickerIconRow: {
         flexDirection: 'row',

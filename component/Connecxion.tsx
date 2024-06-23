@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TextInput, Button, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, Image, TextInput, Button, TouchableOpacity, useColorScheme} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
 
 function Connecxion() {
@@ -8,9 +8,9 @@ function Connecxion() {
         <View style={styles.container}>
             <Text style={styles.headerText}>Veuillez connecter votre compte</Text>
             <Text style={styles.label}>Nom d'utilisateur</Text>
-            <TextInput style={styles.input} placeholder="nom" />
+            <TextInput style={styles.input} placeholder="nom" placeholderTextColor='grey' />
             <Text style={styles.label}>Mot de passe</Text>
-            <TextInput style={styles.input} placeholder="mot de passe" secureTextEntry={true} />
+            <TextInput style={styles.input} placeholder="mot de passe" placeholderTextColor='grey' secureTextEntry={true} />
             <Button title="Connecter" onPress={() => navigation.navigate('Profile')}/>
             <Text style={styles.orText}>OU</Text>
             <TouchableOpacity  onPress={() => navigation.navigate('Profile')}>
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
     label: {
         fontSize: 16,
         fontWeight: 'bold',
-        marginTop: 10
+        marginTop: 10,
+        color:'black'
     },
     input: {
         width: '90%',
@@ -58,11 +59,13 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 4,
         borderColor: '#D3D3D3',
+        color:'black'
     },
     orText: {
         fontSize: 16,
         fontWeight: 'bold',
         marginVertical: 20,
+        color:'grey'
     },
     divider: {
         width: '90%',

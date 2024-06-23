@@ -1,29 +1,54 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import actorData from '../Data/acteurs.json'
 import {useNavigation} from "@react-navigation/native";
 
 function FilmCard (props: {
     isLiked?: boolean;onLike?: Function;
-    image?: string; titre?: string; année?: string; note?: number; genre?: string; synopsis?: string; casting?: Actor[]; isDetailShow?: boolean; }) {
+    image?: string; titre?: string; année?: number; note?: number; genre?: string; synopsis?: string; casting?: Actor[]; isDetailShow?: boolean; }) {
     const navigation = useNavigation();
     const {isDetailShow} = props
+    const [actors, setActors] = React.useState([])
     const [isLiked, setIsLiked] = React.useState(props.isLiked || false)
     const handleLikeClick = () => {
         if (props.isLiked === null || props.isLiked === undefined) {
             setIsLiked(!isLiked);
         } else {
+            // @ts-ignore
             props.onLike(props.titre);
         }
     }
+
+    //GetActorByName
     const handleActorPress = (actorName: string) => {
-        const actorInfo = actorData.find(actor => actor.nom === actorName);
+        const actorInfo = actors.find(actor => actor.nom === actorName)
         if (actorInfo) {
             // @ts-ignore
             navigation.navigate('Actor', {actorInfo})
         }
     }
 
+    //GetAllActors
+    React.useEffect(() => {
+        fetch('https://raw.githubusercontent.com/l3miage-xusi/PDM_API/main/acteurs.json', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                setActors(data)
+            })
+            .catch((error) => {
+                console.error('Error fetching actors data:', error)
+            })
+    }, [])
     return (
         <View style={styles.container}>
             <View style={[styles.row, styles.spaceBetween]}>
@@ -44,8 +69,8 @@ function FilmCard (props: {
                     <Text style={styles.title}>{props.titre}</Text>
                     </TouchableOpacity>
                     <View style={styles.yearNote}>
-                        <Text>{props.année}</Text>
-                        <Text>{props.note}</Text>
+                        <Text style={styles.text}>{props.année}</Text>
+                        <Text style={styles.text}>{props.note}</Text>
                     </View>
                     {props.genre.map((g: string, index: any) => (
                         <Text>{g}</Text>
@@ -63,7 +88,7 @@ function FilmCard (props: {
                                 <TouchableOpacity onPress={() => handleActorPress(cast.nom)}>
                                     <Text style={styles.actorName}>{cast.nom}</Text>
                                 </TouchableOpacity>
-                                <Text>interprète {cast.rôle}</Text>
+                                <Text style={styles.text}>interprète {cast.rôle}</Text>
                             </View>
                         ))}
                     </View>
@@ -117,6 +142,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginBottom: 10,
         justifyContent: 'space-between',
+        color:'black',
     },
     image:{
         width:130,
@@ -126,7 +152,11 @@ const styles = StyleSheet.create({
         color:'blue',
     },
     synopsis:{
-        fontStyle:'italic'
+        fontStyle:'italic',
+        color:'black',
+    },
+    text: {
+        color:'black',
     }
 })
 
