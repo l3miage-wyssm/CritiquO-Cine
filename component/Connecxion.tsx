@@ -1,9 +1,10 @@
-import React from 'react';
-import {View, Text, StyleSheet, Image, TextInput, Button, TouchableOpacity, useColorScheme} from 'react-native';
-import {useNavigation} from "@react-navigation/native";
+import React from 'react'
+import {View, Text, StyleSheet, Image, TextInput, Button, TouchableOpacity} from 'react-native'
+import {useNavigation} from "@react-navigation/native"
 
 function Connecxion() {
-    const navigation = useNavigation();
+    const navigation = useNavigation()
+
     return (
         <View style={styles.container}>
             <Text style={styles.headerText}>Veuillez connecter votre compte</Text>
@@ -11,9 +12,13 @@ function Connecxion() {
             <TextInput style={styles.input} placeholder="nom" placeholderTextColor='grey' />
             <Text style={styles.label}>Mot de passe</Text>
             <TextInput style={styles.input} placeholder="mot de passe" placeholderTextColor='grey' secureTextEntry={true} />
-            <Button title="Connecter" onPress={() => navigation.navigate('Profile')}/>
+            <Button title="Connecter" onPress={() =>
+                // @ts-ignore
+                navigation.navigate('Profile')}/>
             <Text style={styles.orText}>OU</Text>
-            <TouchableOpacity  onPress={() => navigation.navigate('Profile')}>
+            <TouchableOpacity  onPress={() =>
+                // @ts-ignore
+                navigation.navigate('Profile')}>
             <Image
                 source={require('../asset/google.png')}
                 style={styles.icon}
@@ -79,4 +84,4 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     }
 })
-export default Connecxion;
+export default Connecxion

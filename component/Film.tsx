@@ -1,24 +1,30 @@
-import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, TextInput, Button} from 'react-native';
-import FilmCard from "./FilmCard.tsx";
-import Comment from "./Comment.tsx";
+import React from 'react'
+import {View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, TextInput, Button} from 'react-native'
+import FilmCard from "./FilmCard.tsx"
+import Comment from "./Comment.tsx"
 
 // @ts-ignore
 function Film({route}) {
     const film = route.params.props || route.params.movie
     const [commentsData, setCommentsData] = React.useState([])
     const [comments, setComments] = React.useState([])
-    const [isAddingNewComment, setIsAddingNewComment] = React.useState(false);
-    const [newComment, setNewComment] = React.useState('');
+    const [isAddingNewComment, setIsAddingNewComment] = React.useState(false)
+    const [newComment, setNewComment] = React.useState('')
 
     const handleAddComment = () => {
         if (newComment) {
-            comments.push(newComment);
-            setNewComment('');
-            setIsAddingNewComment(false);
+            const comment = {
+                comment:newComment,
+                user: "Emi"
+            }
+            // @ts-ignore
+            comments.push(comment)
+            setNewComment('')
+            setIsAddingNewComment(false)
         }
     }
 
+    //GetCommentsByFilmTitre
     React.useEffect(() => {
         fetch('https://raw.githubusercontent.com/l3miage-xusi/PDM_API/main/comments.json', {
             method: 'GET',
@@ -35,17 +41,18 @@ function Film({route}) {
             })
             .then((data) => {
                 setCommentsData(data)
-                const filteredComments= data.find ((comment) => comment.film === film.titre)
+                const filteredComments= data.find ((comment: Comment) => comment.film === film.titre)
                 setComments(filteredComments.comments)
-
         })
     }, [])
+
     return (
         <View style={styles.container}>
             <FilmCard
                 titre={film.titre}
                 année={film.année}
                 casting={film.casting}
+                // @ts-ignore
                 durée={film.durée}
                 genre={film.genre}
                 note={film.note}
@@ -86,8 +93,8 @@ function Film({route}) {
 
             <ScrollView style={styles.scrollView}>
             <View>
-                    {comments.map((comment, index) => (
-                        <Comment key={index} comment={comment} />
+                    {comments.map((c:CommentProps, index) => (
+                        <Comment key={index} comment={c.comment} userName={c.user}/>
                     ))}
                 </View>
             </ScrollView>
@@ -130,6 +137,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         marginBottom: 10,
+        color:'black'
     },
     buttonContainer: {
         width: 80,
@@ -144,7 +152,7 @@ const styles = StyleSheet.create({
     scrollView: {
         marginHorizontal: 10,
         height: 500
-    },
+    }
 })
 
-export default Film;
+export default Film

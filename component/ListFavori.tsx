@@ -1,26 +1,29 @@
 import React, { useState } from 'react';
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import FilmCard from "./FilmCard.tsx";
 
+// @ts-ignore
 const ListFavori = ({route}) => {
    const [list, setList] = useState(route.params.listFavorite)
-    const handleIsLiked = (filmId) => {
-        const newList = list.filter(film => film.titre !== filmId);
-        setList(newList);
+    const handleIsLiked = (filmTitre: string) => {
+        const newList = list.filter((film:Film) => film.titre !== filmTitre)
+        setList(newList)
     }
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Ma liste favori</Text>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.card}>
-                    {list.map((film) =>
+                    {list.map((film: Film) =>
                         <FilmCard
                             key={film.titre}
                             titre={film.titre}
                             année={film.année}
                             casting={film.casting}
                             durée={film.durée}
+                            // @ts-ignore
                             genre={film.genre}
+                            // @ts-ignore
                             note={film.note}
                             synopsis={film.synopsis}
                             image={film.image}

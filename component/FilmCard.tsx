@@ -1,11 +1,11 @@
-import React from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {useNavigation} from "@react-navigation/native";
+import React from 'react'
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native"
+import {useNavigation} from "@react-navigation/native"
 
 function FilmCard (props: {
-    isLiked?: boolean;onLike?: Function;
+    isLiked?: boolean;onLike?: Function
     image?: string; titre?: string; année?: number; note?: number; genre?: string; synopsis?: string; casting?: Actor[]; isDetailShow?: boolean; }) {
-    const navigation = useNavigation();
+    const navigation = useNavigation()
     const {isDetailShow} = props
     const [actors, setActors] = React.useState([])
     const [isLiked, setIsLiked] = React.useState(props.isLiked || false)
@@ -20,7 +20,7 @@ function FilmCard (props: {
 
     //GetActorByName
     const handleActorPress = (actorName: string) => {
-        const actorInfo = actors.find(actor => actor.nom === actorName)
+        const actorInfo = actors.find((actor: Actor) => actor.nom === actorName)
         if (actorInfo) {
             // @ts-ignore
             navigation.navigate('Actor', {actorInfo})
@@ -38,9 +38,9 @@ function FilmCard (props: {
         })
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
+                    throw new Error('Network response was not ok ' + response.statusText)
                 }
-                return response.json();
+                return response.json()
             })
             .then((data) => {
                 setActors(data)
@@ -49,6 +49,8 @@ function FilmCard (props: {
                 console.error('Error fetching actors data:', error)
             })
     }, [])
+
+    // @ts-ignore
     return (
         <View style={styles.container}>
             <View style={[styles.row, styles.spaceBetween]}>
@@ -65,14 +67,18 @@ function FilmCard (props: {
                             style={styles.icon}
                         />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('Film', {props})}>
+                    <TouchableOpacity onPress={() =>
+                        // @ts-ignore
+                        navigation.navigate('Film', {props})}>
                     <Text style={styles.title}>{props.titre}</Text>
                     </TouchableOpacity>
                     <View style={styles.yearNote}>
                         <Text style={styles.text}>{props.année}</Text>
                         <Text style={styles.text}>{props.note}</Text>
                     </View>
-                    {props.genre.map((g: string, index: any) => (
+                    {
+                        // @ts-ignore
+                        props.genre.map((g: string, index: any) => (
                         <Text>{g}</Text>
                     ))}
                 </View>
@@ -83,7 +89,9 @@ function FilmCard (props: {
                         <Text style={styles.synopsis}>{props.synopsis}</Text>
                     </View>
                     <View style={styles.row}>
-                        {props.casting.map((cast, index) => (
+                        {
+                            // @ts-ignore
+                            props.casting.map((cast, index) => (
                             <View key={index} style={styles.column}>
                                 <TouchableOpacity onPress={() => handleActorPress(cast.nom)}>
                                     <Text style={styles.actorName}>{cast.nom}</Text>
@@ -106,19 +114,16 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         borderColor: '#FFC1E7',
         padding: 10,
-        width: 380,
-        marginBottom: 15,
+        width: '100%',
+        marginBottom: '5%',
     },
     row: {
         flexDirection: 'row',
-        marginBottom: 10,
     },
     column: {
         flexDirection: 'column',
-        paddingLeft:20,
-        marginRight: 15,
-        width: 170,
-        paddingRight:10
+        padding:'2%',
+        width: '50%',
     },
     spaceBetween: {
         justifyContent: 'space-between',
@@ -137,16 +142,15 @@ const styles = StyleSheet.create({
         justifyContent:'center'
     },
     yearNote :{
-        paddingTop:15,
-        paddingRight:20,
+        paddingTop:'5%',
+        paddingRight:'5%',
         flexDirection: 'row',
-        marginBottom: 10,
         justifyContent: 'space-between',
         color:'black',
     },
     image:{
-        width:130,
-        height:200,
+        width:'90%',
+        height:200
     },
     actorName:{
         color:'blue',

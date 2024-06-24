@@ -1,36 +1,34 @@
-import React from 'react';
+import React from 'react'
 import {
     Image,
     StatusBar,
     StyleSheet, TouchableOpacity,
-    useColorScheme,
     DrawerLayoutAndroid,
     View,
     Text, GestureResponderEvent,
-} from 'react-native';
-import {NavigationContainer, useNavigation} from "@react-navigation/native";
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Home from "./component/Home.tsx";
-import Profile from "./component/Profile.tsx";
-import {StackNavigationProp} from "@react-navigation/stack";
-import ListFavori from "./component/ListFavori.tsx";
-import Actor from "./component/Actor.tsx";
-import Film from "./component/Film.tsx";
-import Connecxion from "./component/Connecxion.tsx";
+} from 'react-native'
+import {NavigationContainer, useNavigation} from "@react-navigation/native"
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import Home from "./component/Home.tsx"
+import Profile from "./component/Profile.tsx"
+import {StackNavigationProp} from "@react-navigation/stack"
+import ListFavori from "./component/ListFavori.tsx"
+import Actor from "./component/Actor.tsx"
+import Film from "./component/Film.tsx"
+import Connecxion from "./component/Connecxion.tsx"
 
 type RootStackParamList = {
-    Home: undefined;
-    Profile: undefined;
-    Favori: undefined;
-    Actor: undefined;
-    Film: undefined;
-    Connecxion: undefined;
+    Home: undefined
+    Profile: undefined
+    Favori: undefined
+    Actor: undefined
+    Film: undefined
+    Connecxion: undefined
 };
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 const App = (): React.JSX.Element => {
-    const drawer = React.useRef<DrawerLayoutAndroid>(null);
+    const drawer = React.useRef<DrawerLayoutAndroid>(null)
     return (
             <NavigationContainer>
                 <DrawerLayoutAndroid
@@ -40,7 +38,6 @@ const App = (): React.JSX.Element => {
                     renderNavigationView={() => <NavigationView drawerRef={drawer} />}
                 >
                     <HeaderBar onPress={() => drawer.current?.openDrawer()}/>
-
                     <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
                         <Stack.Screen name="Home" component={Home}/>
                         <Stack.Screen name="Profile" component={Profile}/>
@@ -51,14 +48,15 @@ const App = (): React.JSX.Element => {
                     </Stack.Navigator>
                 </DrawerLayoutAndroid>
             </NavigationContainer>
-
-    );
+    )
 }
 
+//menu latéral du page d'accueil
 // @ts-ignore
 const NavigationView = ({drawerRef}) => {
     const navigation = useNavigation()
     const [listFavorite, setListFavorite] = React.useState([])
+
     React.useEffect(() => {
         fetch('https://raw.githubusercontent.com/l3miage-xusi/PDM_API/main/user.json', {
             method: 'GET',
@@ -74,9 +72,10 @@ const NavigationView = ({drawerRef}) => {
                 return response.json()
             })
             .then((data) => {
-                setListFavorite(data.listFavorite)
+                setListFavorite(data[0].listFavorite)
             })
     }, [])
+
     return (
         <View style={[styles.container, styles.navigationContainer]}>
             <Image
@@ -84,6 +83,7 @@ const NavigationView = ({drawerRef}) => {
                 style={styles.logoSmall}
             />
             <TouchableOpacity onPress={() => {
+                // @ts-ignore
                 navigation.navigate('Favori', {listFavorite})
                 if (drawerRef) {
                     drawerRef.current?.closeDrawer()
@@ -99,6 +99,7 @@ const NavigationView = ({drawerRef}) => {
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => {
+                // @ts-ignore
                 navigation.navigate('Home');
                 if (drawerRef) {
                     drawerRef.current?.closeDrawer();
@@ -109,10 +110,11 @@ const NavigationView = ({drawerRef}) => {
                         source={require('../CritiquOCine/asset/maison.png')}
                         style={styles.icon}
                     />
-                    <Text style={styles.paragraph}>Acceuil</Text>
+                    <Text style={styles.paragraph}>Accueil</Text>
                 </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => {
+                // @ts-ignore
                 navigation.navigate('Connecxion');
                 if (drawerRef) {
                     drawerRef.current?.closeDrawer();
@@ -127,8 +129,9 @@ const NavigationView = ({drawerRef}) => {
                 </View>
             </TouchableOpacity>
         </View>
-    );
-};
+    )
+}
+
 const HeaderBar = (props: { onPress: ((event: GestureResponderEvent) => void) | undefined; }) => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
     return(
@@ -152,7 +155,7 @@ const HeaderBar = (props: { onPress: ((event: GestureResponderEvent) => void) | 
                 />
             </TouchableOpacity>
         </View>
-    );
+    )
 }
 
 const styles = StyleSheet.create({
@@ -167,9 +170,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: 100,
+        height: '10%',
         backgroundColor: '#FFC1E7',
-        padding: 20
+        padding: '5%'
     },
     logo: {
         marginTop:30,
@@ -197,7 +200,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        margin: 15,
+        margin: '1%',
     },
     scrollView: {
         backgroundColor: 'pink',
@@ -211,6 +214,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginLeft:20
     }
-});
+})
 
-export default App;
+export default App

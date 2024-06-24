@@ -1,45 +1,27 @@
-import React from 'react';
+import React from 'react'
 import {
     SafeAreaView, ScrollView, StatusBar,
     StyleSheet, TextInput,
     View,
-} from 'react-native';
-import { Picker } from '@react-native-picker/picker';
-import FilmCard from "./FilmCard.tsx";
+} from 'react-native'
+import { Picker } from '@react-native-picker/picker'
+import FilmCard from "./FilmCard.tsx"
 
 function Home () {
     const [inputValue, setInputValue] = React.useState('')
     const [selectedValue, setSelectedValue] = React.useState("Par note")
     const [filmData, setFilmData] = React.useState([])
-    // @ts-ignore
     const [filteredFilms, setFilteredFilms] = React.useState<Film[]>(filmData)
     const [sortedFilms, setSortedFilms] = React.useState(filteredFilms)
 
-    const getAllGenres = (films: Film[]) => {
-        const allGenres = new Set();
-
-        films.forEach(film => {
-            film.genre.forEach((genre: string) => {
-                allGenres.add(genre)
-            })
-        })
-
-        return Array.from(allGenres)
-    }
-
-    // @ts-ignore
-    const uniqueGenres = getAllGenres(filmData)
-
     const handleInputChange = (text: string) => {
         setInputValue(text)
-        let films = filmData
+        let films: Film[] = filmData
         if (text !== '') {
-            // @ts-ignore
-            films = filmData.filter((film) =>
+            films = filmData.filter((film:Film) =>
                 film.titre.toLowerCase().includes(text.toLowerCase())
             )
         }
-        // @ts-ignore
         setFilteredFilms(films)
         sortFilms(films)
     }
@@ -58,15 +40,12 @@ function Home () {
                 return b.note - a.note
             })
         }
-        // @ts-ignore
         setSortedFilms(sorted)
     }
 
     React.useEffect(() => {
         sortFilms(filteredFilms)
     }, [selectedValue])
-
-
 
     //GetAllFilms
     React.useEffect(() => {
@@ -79,14 +58,14 @@ function Home () {
         })
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
+                    throw new Error('Network response was not ok ' + response.statusText)
                 }
-                return response.json();
+                return response.json()
             })
             .then((data) => {
-                setFilmData(data);
-                setFilteredFilms(data);
-                setSortedFilms(data);
+                setFilmData(data)
+                setFilteredFilms(data)
+                setSortedFilms(data)
             })
             .catch((error) => {
                 console.error('Error fetching film data:', error)
@@ -94,48 +73,51 @@ function Home () {
     }, [])
 
 
+    // @ts-ignore
     return (
-<View style={styles.container}>
-    <SafeAreaView style={styles.cardContainer}>
-        <TextInput
-            style={styles.textInput}
-            value={inputValue}
-            onChangeText={handleInputChange}
-            placeholder="Veuillez saisir le nom du film ..."
-            placeholderTextColor="#000000"
-        />
-        <View style={styles.pickerIconRow}>
-            <Picker
-                selectedValue={selectedValue}
-                onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                style={styles.picker}
-                dropdownIconColor='#000000'
-            >
-                <Picker.Item label="Par note" value="Par note" />
-                <Picker.Item label="par date" value="par date" />
-                <Picker.Item label="par ordre alphabetique" value="par ordre alphabetique" />
-            </Picker>
+        <View style={styles.container}>
+            <SafeAreaView style={styles.cardContainer}>
+                <TextInput
+                    style={styles.textInput}
+                    value={inputValue}
+                    onChangeText={handleInputChange}
+                    placeholder="Veuillez saisir le nom du film ..."
+                    placeholderTextColor="#000000"
+                />
+                <View style={styles.pickerIconRow}>
+                    <Picker
+                        selectedValue={selectedValue}
+                        onValueChange={(itemValue) => setSelectedValue(itemValue)}
+                        style={styles.picker}
+                        dropdownIconColor='#000000'
+                    >
+                        <Picker.Item label="Par note" value="Par note" />
+                        <Picker.Item label="par date" value="par date" />
+                        <Picker.Item label="par ordre alphabetique" value="par ordre alphabetique" />
+                    </Picker>
+                </View>
+                <ScrollView style={styles.scrollView}>
+                    <View style={styles.card}>
+                        {sortedFilms.map((film) =>
+                            <FilmCard
+                                key={film.titre}
+                                titre={film.titre}
+                                année={film.année}
+                                casting={film.casting}
+                                durée={film.durée}
+                                // @ts-ignore
+                                genre={film.genre}
+                                // @ts-ignore
+                                note={film.note}
+                                synopsis={film.synopsis}
+                                image={film.image}
+                                isDetailShow={false}
+                            />
+                        )}
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
         </View>
-        <ScrollView style={styles.scrollView}>
-            <View style={styles.card}>
-                {sortedFilms.map((film, index) =>
-                    <FilmCard
-                        key={film.titre}
-                        titre={film.titre}
-                        année={film.année}
-                        casting={film.casting}
-                        durée={film.durée}
-                        genre={film.genre}
-                        note={film.note}
-                        synopsis={film.synopsis}
-                        image={film.image}
-                        isDetailShow={false}
-                    />
-                )}
-            </View>
-        </ScrollView>
-    </SafeAreaView>
-</View>
 )
 }
 const styles = StyleSheet.create({
@@ -160,6 +142,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         fontSize: 16,
         width: '100%',
+        color:'black'
     },
     picker: {
         width: '40%',

@@ -1,6 +1,7 @@
-import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native';
-import {useNavigation} from "@react-navigation/native";
+import React from 'react'
+import {View, Text, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native'
+import {useNavigation} from "@react-navigation/native"
+
 // @ts-ignore
 function Actor({route}) {
     const actor = route.params
@@ -8,7 +9,7 @@ function Actor({route}) {
     const [movies, setMovies] = React.useState([])
     const [filmData, setFilmData] = React.useState([])
 
- //GetAllFilmsByActor
+    //GetAllFilmsByActor
     React.useEffect(() => {
         fetch('https://raw.githubusercontent.com/l3miage-xusi/PDM_API/main/films.json', {
             method: 'GET',
@@ -19,23 +20,21 @@ function Actor({route}) {
         })
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
+                    throw new Error('Network response was not ok ' + response.statusText)
                 }
-                return response.json();
+                return response.json()
             })
             .then((data) => {
                 setFilmData(data)
-                const filteredMovies = data.filter(film =>
+                const filteredMovies = data.filter((film: Film) =>
                     film.casting.some(cast => cast.nom === actor.actorInfo.nom)
                 )
-                // @ts-ignore
                 setMovies(filteredMovies)
             })
             .catch((error) => {
                 console.error('Error fetching film data:', error)
             })
     }, [actor.actorInfo])
-
 
     return (
         <View style={styles.container}>
@@ -53,13 +52,15 @@ function Actor({route}) {
             <Text style={styles.title}>Films</Text>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.movieContainer}>
-                {movies.map((movie, index) => (
+                {movies.map((movie: Film, index) => (
                     <View key={index} style={styles.movie}>
                         <Image
                             source={{ uri: movie.image }}
                             style={styles.image}
                         />
-                        <TouchableOpacity onPress={() =>  navigation.navigate('Film', {movie})}>
+                        <TouchableOpacity onPress={() =>
+                            // @ts-ignore
+                            navigation.navigate('Film', {movie})}>
                         <Text style={styles.secondTitle}>{movie.titre}</Text>
                         </TouchableOpacity>
                     </View>
@@ -122,7 +123,7 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         marginHorizontal: 10,
-        height: 330,
+        height: '60%',
         flexDirection: 'column',
         flexWrap: 'wrap',
     },

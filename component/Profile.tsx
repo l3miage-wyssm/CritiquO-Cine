@@ -1,126 +1,133 @@
-import React, { useState } from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView} from 'react-native';
-import Comment from "./Comment.tsx";
-import {useNavigation} from "@react-navigation/native";
+import React, { useState } from 'react'
+import {View, Text, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView} from 'react-native'
+import Comment from "./Comment.tsx"
+import {useNavigation} from "@react-navigation/native"
 
 function Profile() {
     const navigation = useNavigation()
     const [userData, setUserData] = React.useState(null)
     const [name, setName] = useState('')
     const [comments, setComments] = React.useState([])
-    const [editMode, setEditMode] = useState(false);
+    const [editMode, setEditMode] = useState(false)
     const [isCommentShow,setIsCommentsShow] = React.useState(false)
     const [listFavorite,setListFavorite] = React.useState([])
-    const userId = userData && userData.id
-    const handleNameChange = (newName) => {
-        setName(newName);
+    const handleNameChange = (newName: string) => {
+        setName(newName)
     }
 
     const handleNameSubmit = () => {
         setEditMode(false)
     }
 
-
-        React.useEffect(() => {
-            fetch('https://raw.githubusercontent.com/l3miage-xusi/PDM_API/main/user.json', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
+    React.useEffect(() => {
+        fetch('https://raw.githubusercontent.com/l3miage-xusi/PDM_API/main/user.json', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText)
                 }
+                return response.text()
             })
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-                    return response.json()
-                })
-                .then((data) => {
-                    setUserData(data)
-                    setName(data.name)
-                    setComments(data.comments)
-                    setListFavorite(data.listFavorite)
-                })
-        }, [])
+            .then(text => {
+                return JSON.parse(text)
+            })
+            .then(data => {
+                setUserData(data[0])
+                setName(data[0].name)
+                setComments(data[0].comments)
+                setListFavorite(data[0].listFavorite)
+            })
+            .catch(error => {
+                console.error('Error:', error)
+            })
+    }, [])
 
     return (
-
-              <View style={styles.container}>
-                  <View style={styles.infoContainer}>
-                      <Image
-                          source={require('../asset/femme.png')}
-                          style={styles.image}
-                      />
-                      {userData && <View style={styles.textContainer}>
-                          {editMode ? (
-                              <TextInput
-                                  style={styles.input}
-                                  onChangeText={handleNameChange}
-                                  defaultValue={name}
-                                  autoFocus={true}
-                                  onBlur={() => setEditMode(false)}
-                                  onSubmitEditing={handleNameSubmit}
-                                  returnKeyType="done"
-                              />
-                          ) : (
-                              <View style={styles.nameContainer}>
-                                  <Text style={styles.name}>{name}</Text>
-                                  <TouchableOpacity onPress={() => setEditMode(true)}>
-                                      <Image
-                                          source={require('../asset/crayon.png')}
-                                          style={styles.icon}
-                                      />
-                                  </TouchableOpacity>
-                              </View>
-                          )}
-                          <Text style={styles.label}>Compte ID :</Text>
-                          <Text style={styles.value}>{userData.id}</Text>
-                          <Text style={styles.label}>Date de naissance :</Text>
-                          <Text style={styles.value}>{userData.birthDay}</Text>
-                          <View style={styles.coinBorder}>
-                              <Image
-                                  source={require('../asset/femme_icon.png')}
-                                  style={styles.icon}
-                              />
+          <View style={styles.container}>
+              <View style={styles.infoContainer}>
+                  <Image
+                      source={require('../asset/femme.png')}
+                      style={styles.image}
+                  />
+                  {userData && <View style={styles.textContainer}>
+                      {editMode ? (
+                          <TextInput
+                              style={styles.input}
+                              onChangeText={handleNameChange}
+                              defaultValue={name}
+                              autoFocus={true}
+                              onBlur={() => setEditMode(false)}
+                              onSubmitEditing={handleNameSubmit}
+                              returnKeyType="done"
+                          />
+                      ) : (
+                          <View style={styles.nameContainer}>
+                              <Text style={styles.name}>{name}</Text>
+                              <TouchableOpacity onPress={() => setEditMode(true)}>
+                                  <Image
+                                      source={require('../asset/crayon.png')}
+                                      style={styles.icon}
+                                  />
+                              </TouchableOpacity>
                           </View>
-                      </View>}
-                  </View>
-                  <View style={styles.secondTitle}>
-                      <Image
-                          source={require('../asset/coeur.png')}
-                          style={styles.icon}
-                      />
-                      <TouchableOpacity onPress={() => navigation.navigate('Favori', {listFavorite}) }>
-                        <Text style={styles.commentText}>Ma liste Favori</Text>
-                      </TouchableOpacity>
-                  </View>
-                  <View style={styles.secondTitle}>
-                      <Image
-                          source={require('../asset/commentaire.png')}
-                          style={styles.icon}
-                      />
-                      <Text style={styles.commentText}>Commentaires envoyées : {comments.length}</Text>
-                      <TouchableOpacity onPress={() => setIsCommentsShow(!isCommentShow)}>
+                      )}
+                      <Text style={styles.label}>Compte ID :</Text>
+                      <Text style={styles.value}>
+                          {// @ts-ignore
+                              userData.id
+                          }</Text>
+                      <Text style={styles.label}>Date de naissance :</Text>
+                      <Text style={styles.value}>{
+                          // @ts-ignore
+                          userData.birthDay
+                      }</Text>
+                      <View style={styles.coinBorder}>
                           <Image
-                              source={isCommentShow? require('../asset/caret-cercle-bas.png') :require('../asset/caret-cercle-vers-le-haut.png')}
+                              source={require('../asset/femme_icon.png')}
                               style={styles.icon}
                           />
-                      </TouchableOpacity>
-                  </View>
-                  <ScrollView style={styles.scrollView}>
-                      <View>
-                          {
-                              isCommentShow && comments.map((comment, index) => (
-                                  <Comment key={index} comment={comment}/>
-                              ))
-                          }
                       </View>
-                  </ScrollView>
-
-
-
+                  </View>}
               </View>
-
+              <View style={styles.secondTitle}>
+                  <Image
+                      source={require('../asset/coeur.png')}
+                      style={styles.icon}
+                  />
+                  <TouchableOpacity onPress={() =>
+                      // @ts-ignore
+                      navigation.navigate('Favori', {listFavorite}) }>
+                    <Text style={styles.commentText}>Ma liste Favori</Text>
+                  </TouchableOpacity>
+              </View>
+              <View style={styles.secondTitle}>
+                  <Image
+                      source={require('../asset/commentaire.png')}
+                      style={styles.icon}
+                  />
+                  <Text style={styles.commentText}>Commentaires envoyées : {comments.length}</Text>
+                  <TouchableOpacity onPress={() => setIsCommentsShow(!isCommentShow)}>
+                      <Image
+                          source={isCommentShow? require('../asset/caret-cercle-bas.png') :require('../asset/caret-cercle-vers-le-haut.png')}
+                          style={styles.icon}
+                      />
+                  </TouchableOpacity>
+              </View>
+              <ScrollView style={styles.scrollView}>
+                  <View>
+                      {
+                          isCommentShow && comments.map((comment, index) => (
+                              <Comment key={index} comment={comment}/>
+                          ))
+                      }
+                  </View>
+              </ScrollView>
+          </View>
     )
 }
 
@@ -219,4 +226,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Profile;
+export default Profile
