@@ -36,7 +36,7 @@ function Comment(props: { comment: string, userName?: string}) {
     return (
         <View style={styles.container}>
             <View style={styles.headerContainer}>
-                {user &&
+                {user && props.userName &&
                     <Image
                         // @ts-ignore
                         source={{ uri: user.image }}
