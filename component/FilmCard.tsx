@@ -79,7 +79,7 @@ function FilmCard (props: {
                     {
                         // @ts-ignore
                         props.genre.map((g: string, index: any) => (
-                        <Text>{g}</Text>
+                        <Text key={index}>{g}</Text>
                     ))}
                 </View>
             </View>

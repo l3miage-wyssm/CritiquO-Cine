@@ -1,81 +1,72 @@
 
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Projet PDM : Critiqu'O Ciné
 
-# Getting Started
+## Partie 1 : Introduction du projet
+Ce projet a été réalisé dans le cadre du cours "Projet Développement Mobile" du M1 MIAGE, par **Wyss Marie** et **Xu Sicong**.
+Il consiste en le développement d'une application mobile dédiée à la consultation de films. 
+Cette application permet aux utilisateurs de naviguer parmi les films, de les rechercher et de poster des commentaires. 
+Elle a pour but de fournir une interface utilisateur intuitive, permettant aux cinéphiles de facilement accéder aux informations sur les films et de partager leurs expériences de visionnage avec d'autres utilisateurs.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+Le lien de ce projet est 
+````
+https://github.com/l3miage-wyssm/CritiquO-Cine
+````
+## Partie 2 : Fonctionnalités
 
-## Step 1: Start the Metro Server
+### *Navigation et recherche de films :*
+Les utilisateurs peuvent parcourir tous les films sur la page d'accueil. Une recherche floue par nom de film est disponible.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+### *Fonctionnalités de tri :*
+Les utilisateurs peuvent trier les films par note, par année de sortie et par l'ordre alphabétique.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### *Fonctionnalité de commentaires :*
+Les utilisateurs peuvent voir les commentaires d'autres utilisateurs et poster leurs propres évaluations des films
 
-```bash
-# using npm
-npm start
+### *Fonctionnalité d'aimer ou ne pas aimer un film :*
+Les utilisateurs peuvent exprimer leur appréciation ou leur désapprobation pour un film en cliquant sur l'icône en forme de cœur située en haut à droite, depuis la page d'accueil ou la page de détails du film.
 
-# OR using Yarn
-yarn start
-```
+### *Page d'accueil :*
+Cette page présente tous les films disponibles dans la bibliothèque. Elle permet également de rechercher et de trier les films directement depuis cette interface.
 
-## Step 2: Start your Application
+### *Page du menu latéral :*
+Cette page est accessible via un bouton de liste situé dans l'en-tête à gauche. Elle permet un accès rapide à la page d'accueil, affiche la liste des films favoris et offre la possibilité de se déconnecter du compte utilisateur en cours.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+### *Page de détails du film :*
+Affiche des informations détaillées sur le film, y compris un résumé, une liste d'acteurs, etc., ainsi que les commentaires des utilisateurs.
 
-### For Android
+### *Page de détails d'acteur :*
+Cette page présente des informations détaillées sur un acteur, ainsi que les films dans lesquels il a joué.
 
-```bash
-# using npm
-npm run android
+### *Page de profil utilisateur :*
+Les utilisateurs peuvent voir et éditer leur propre profil.
 
-# OR using Yarn
-yarn android
-```
+### *Page de la liste des films favori :*
+Cette page affiche tous les films pour lesquels l'utilisateur a cliqué sur l'icône de cœur, indiquant qu'il les apprécie.
 
-### For iOS
+### *Page de connecxion :*
+Les utilisateurs peuvent se connecter sur cette page soit en utilisant leur nom d'utilisateur et mot de passe, soit via leur compte Google. Cependant, en l'absence de backend de données, un clic sur le bouton de connexion chargera les informations d'un utilisateur par défaut, sans authentification réelle par mot de passe.
 
-```bash
-# using npm
-npm run ios
+## Partie 3 : Gestion des données via requêtes HTTPS
+Dans ce projet, toutes les données extraites par des requêtes HTTPS sont stockées à distance dans des fichiers JSON hébergés sur un autre projet GitHub. Les données sont accessibles via le lien suivant :
 
-# OR using Yarn
-yarn ios
-```
+````
+https://github.com/l3miage-xusi/PDM_API
+````
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## Partie 4 : Structure du projet
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+````
+/CritiquOCine
+    /asset      # Ressources statiques telles que images
+    /component  # Composants de l'application
+    /interface  # Structures des entités utilisées dans l'application
+    App.tsx     # Navigation du projet et le composant HeaderBar
+    README
+    
+````
+## Partie 5 : Lancement du projet
 
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-
+Pour lancer le projet sur Android :
+````bash
+react-native start 
+````
