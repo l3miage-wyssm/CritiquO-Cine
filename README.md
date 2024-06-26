@@ -3,7 +3,7 @@
 
 ## Partie 1 : Introduction du projet
 Ce projet a été réalisé dans le cadre du cours "Projet Développement Mobile" du M1 MIAGE, par **Wyss Marie** et **Xu Sicong**.
-Il consiste en le développement d'une application mobile dédiée à la consultation de films. 
+Il consiste au développement d'une application mobile dédiée à la consultation de films. 
 Cette application permet aux utilisateurs de naviguer parmi les films, de les rechercher et de poster des commentaires. 
 Elle a pour but de fournir une interface utilisateur intuitive, permettant aux cinéphiles de facilement accéder aux informations sur les films et de partager leurs expériences de visionnage avec d'autres utilisateurs.
 
@@ -17,13 +17,13 @@ https://github.com/l3miage-wyssm/CritiquO-Cine
 Les utilisateurs peuvent parcourir tous les films sur la page d'accueil. Une recherche floue par nom de film est disponible.
 
 ### *Fonctionnalités de tri :*
-Les utilisateurs peuvent trier les films par note, par année de sortie et par l'ordre alphabétique.
+Les utilisateurs peuvent trier les films par note, par année de sortie et par ordre alphabétique.
 
 ### *Fonctionnalité de commentaires :*
 Les utilisateurs peuvent voir les commentaires d'autres utilisateurs et poster leurs propres évaluations des films
 
 ### *Fonctionnalité d'aimer ou ne pas aimer un film :*
-Les utilisateurs peuvent exprimer leur appréciation ou leur désapprobation pour un film en cliquant sur l'icône en forme de cœur située en haut à droite, depuis la page d'accueil ou la page de détails du film.
+Les utilisateurs peuvent exprimer leur appréciation pour un film en cliquant sur l'icône en forme de cœur située en haut à droite, depuis la page d'accueil ou la page de détails du film.
 
 ### *Page d'accueil :*
 Cette page présente tous les films disponibles dans la bibliothèque. Elle permet également de rechercher et de trier les films directement depuis cette interface.
